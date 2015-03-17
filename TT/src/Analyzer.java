@@ -7,6 +7,7 @@ import edu.upc.freeling.*;
 public class Analyzer {
   // Modify this line to be your FreeLing installation directory
   private static final String FREELINGDIR = "/usr/local";
+  //Hola
   private static final String DATA = FREELINGDIR + "/share/freeling/";
   private static final String LANG = "es";
 
