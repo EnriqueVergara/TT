@@ -1,0 +1,44 @@
+<concept nombre="entidad">
+    <languaje>Spanish</languaje>
+    <word>Entidad fisica</word>
+    <concept nombre="liquido">        
+        <languaje>Spanish</languaje>
+        <word>bebida</word> 
+        <concept nombre="bebida">
+        <languaje>Spanish</languaje>
+        <word>bebida</word>        
+            <concept nombre="café">
+                <languaje>Spanish</languaje>
+                <word>café</word>
+            </concept>    
+                        
+            <concept nombre="leche">
+                <languaje>Spanish</languaje>
+                <word>leche</word>
+            </concept> 
+        </concept>
+    </concept>
+    
+    <concept nombre="persona">
+        <languaje>Spanish</languaje>        
+        <word>leche</word>
+        <concept nombre="hermano">
+            <languaje>Spanish</languaje>        
+            <word>leche</word>
+        </concept>
+    </concept>
+    
+    <concept nombre="contenedor">
+        <languaje>Spanish</languaje>
+        <word>contenedor</word>
+        <concept nombre="taza">
+            <languaje>Spanish</languaje>
+            <word>taza</word>
+        </concept>
+                
+        <concept nombre="vaso">
+            <languaje>Spanish</languaje>
+            <word>vaso</word>
+        </concept>
+    </concept>
+</concept>

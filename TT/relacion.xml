@@ -1,0 +1,16 @@
+<concept nombre="relacion">
+    <concept nombre="con">
+        <concept nombre="que-contiene">
+            <agente>bebida</agente>
+            <pasivo>bebida</pasivo>
+        </concept>
+        <concept nombre="acompañado-de">     
+            <agente>bebida</agente>
+            <pasivo>persona</pasivo>
+        </concept>            
+        <concept nombre="con-contenido">    
+            <agente>contenedor</agente>    
+            <pasivo>bebida</pasivo>
+        </concept>    
+    </concept>    
+</concept>
