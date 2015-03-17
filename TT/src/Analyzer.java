@@ -12,7 +12,7 @@ public class Analyzer {
 
   public static void main( String argv[] ) throws IOException {
     System.loadLibrary( "freeling_javaAPI" );
-
+      System.out.println("Hola");
     Util.initLocale( "default" );
 
     // Create options set for maco analyzer.
