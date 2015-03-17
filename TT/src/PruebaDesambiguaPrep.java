@@ -39,6 +39,34 @@ public class PruebaDesambiguaPrep {
         System.out.println();
         System.out.println("Yo tomo "+palabra1+" "+prep+" "+palabra2+" -> "+"Yo tomo "+palabra1+" "+desambiguado+" "+palabra2);
     
+           desambiguado=des.desambiguaTripleta(
+                                                    busca.buscarEnIndice(indexOnto, palabra1), 
+                                                    busca.buscarEnIndice(indexOnto, palabra2), 
+                                                    busca.buscarEnIndiceRel(indexRel, prep));
+      
+        System.out.println();
+        System.out.println("Yo tomo "+palabra1+" "+prep+" "+palabra2+" -> "+"Yo tomo "+palabra1+" "+desambiguado+" "+palabra2);
+           desambiguado=des.desambiguaTripleta(
+                                                    busca.buscarEnIndice(indexOnto, palabra1), 
+                                                    busca.buscarEnIndice(indexOnto, palabra2), 
+                                                    busca.buscarEnIndiceRel(indexRel, prep));
+      
+        System.out.println();
+        System.out.println("Yo tomo "+palabra1+" "+prep+" "+palabra2+" -> "+"Yo tomo "+palabra1+" "+desambiguado+" "+palabra2);
+           desambiguado=des.desambiguaTripleta(
+                                                    busca.buscarEnIndice(indexOnto, palabra1), 
+                                                    busca.buscarEnIndice(indexOnto, palabra2), 
+                                                    busca.buscarEnIndiceRel(indexRel, prep));
+      
+        System.out.println();
+        System.out.println("Yo tomo "+palabra1+" "+prep+" "+palabra2+" -> "+"Yo tomo "+palabra1+" "+desambiguado+" "+palabra2);
+           desambiguado=des.desambiguaTripleta(
+                                                    busca.buscarEnIndice(indexOnto, palabra1), 
+                                                    busca.buscarEnIndice(indexOnto, palabra2), 
+                                                    busca.buscarEnIndiceRel(indexRel, prep));
+      
+        System.out.println();
+        System.out.println("Yo tomo "+palabra1+" "+prep+" "+palabra2+" -> "+"Yo tomo "+palabra1+" "+desambiguado+" "+palabra2);
     palabra1="café";
         palabra2="hermano";
          prep="con";

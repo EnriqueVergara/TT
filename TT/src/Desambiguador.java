@@ -9,7 +9,7 @@ public class Desambiguador {
                 return rel.getHijos().get(i).getNombre();
         }
             
-        return "test";
+        return "";
     }
     public boolean desambiguaRelacion(Concepto agente,Concepto pasivo,Relacion rel){
         if(empatar(agente, rel.getAgente()) && empatar(pasivo, rel.getPasivo()))
