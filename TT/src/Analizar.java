@@ -24,7 +24,7 @@ public class Analizar {
         indexOnto=load.getIndexOnto();
         indexRel=load.getIndexRel();
     }
-    public void analizarOracion(String line){
+    public String analizarOracion(String line){
         MacoOptions op = new MacoOptions( LANG );
         op.setActiveModules(false, true, true, true, 
                                true, true, true, 
@@ -60,6 +60,11 @@ public class Analizar {
             //Oracion con info semantica adicional
             result.add(desambiguarPreposiciones(palabras));
         }
+        String res="";
+        for(int i=0;i<result.size();i++){
+            res+=result.get(i)+"\n";
+        }
+        return res;
     }
     private String desambiguarPreposiciones(List<Word> palabras){
         int i;
