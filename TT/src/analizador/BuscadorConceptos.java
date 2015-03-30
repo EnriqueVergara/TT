@@ -1,3 +1,5 @@
+package analizador;
+
 
 import java.util.List;
 

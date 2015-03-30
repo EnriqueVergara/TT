@@ -1,3 +1,5 @@
+package analizador;
+
 public class PruebaEtiquetador extends javax.swing.JFrame {
         Analizar an=new Analizar();
     public PruebaEtiquetador() {
@@ -60,6 +62,7 @@ public class PruebaEtiquetador extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         tagged.setText(an.analizarOracion(line.getText()));
+       // an.analizarDep(line.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

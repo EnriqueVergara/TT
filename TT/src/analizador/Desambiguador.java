@@ -1,3 +1,5 @@
+package analizador;
+
 public class Desambiguador {
     public String desambiguaTripleta(Concepto agente,Concepto pasivo,Relacion rel){
 //        System.out.println(agente.getNombre());

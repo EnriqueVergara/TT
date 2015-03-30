@@ -1,6 +1,7 @@
+package analizador;
+
 
 import java.util.List;
-
 public class Relacion extends Concepto{
     private Concepto agente;
     private Concepto pasivo;

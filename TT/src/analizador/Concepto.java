@@ -1,3 +1,5 @@
+package analizador;
+
 public class Concepto {
     private String nombre;
     private Concepto padre;
