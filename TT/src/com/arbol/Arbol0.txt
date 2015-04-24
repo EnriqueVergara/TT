@@ -1,0 +1,7 @@
+digraph G 
+ { 
+"Tomar\n(VMN0000)"->"café\n(NCMS000)"; 
+"café\n(NCMS000)"->"que-contiene\n(VMIP3S0)"; 
+"que-contiene\n(VMIP3S0)"->"leche\n(NCFS000)"; 
+"Tomar\n(VMN0000)"->".\n(Fp)"; 
+}

@@ -1,0 +1,8 @@
+digraph G 
+ { 
+"acompañado-de\nacompañado-de\n(VMIP3S0)"->"Tomar\ntomar\n(VMN0000)"; 
+"Tomar\ntomar\n(VMN0000)"->"café\ncafé\n(NCMS000)"; 
+"acompañado-de\nacompañado-de\n(VMIP3S0)"->"hermano\nhermano\n(NCMS000)"; 
+"hermano\nhermano\n(NCMS000)"->"mi\nmi\n(DP1CSS)"; 
+"acompañado-de\nacompañado-de\n(VMIP3S0)"->".\n.\n(Fp)"; 
+}
