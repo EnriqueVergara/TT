@@ -1,6 +1,7 @@
 package analizador;
 
 import com.arbol.Graficador;
+import edu.upc.freeling.*;
 import edu.upc.freeling.ChartParser;
 import edu.upc.freeling.DepTxala;
 import edu.upc.freeling.Depnode;
@@ -37,7 +38,7 @@ public class Analizar implements Runnable {
         termino = false;
 //        PruebaEtiquetador.progressBar.setIndeterminate(true);
         String oracion = analizarOracion();
-        PruebaEtiquetador.tagged.setText(oracion);
+        Analizador.tagged.setText(oracion);
         try {
             Thread.sleep( 1000 );
         } catch (InterruptedException e){
@@ -117,25 +118,57 @@ public class Analizar implements Runnable {
         // Create analyzers.
         Tokenizer tk = new Tokenizer(DATA + LANG + "/tokenizer.dat");
         Splitter sp = new Splitter(DATA + LANG + "/splitter.dat");
-        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: En Progreso...");
+        Analizador.labelEstado.setText("Análisis de Dependencias: En Progreso...");
         Maco mf = new Maco(op);
         ChartParser parser = new ChartParser(
                 DATA + LANG + "/chunker/grammar-chunk.dat");
-        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Espere...");
+        Analizador.labelEstado.setText("Análisis de Dependencias: Espere...");
         DepTxala dep = new DepTxala(DATA + LANG + "/dep/dependences.dat",
                 parser.getStartSymbol());
-        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Aguante un poco más...");
+        Analizador.labelEstado.setText("Análisis de Dependencias: Aguante un poco más...");
         HmmTagger tg = new HmmTagger(DATA + LANG + "/tagger.dat", true, 2);
         Nec neclass = new Nec(DATA + LANG + "/nerc/nec/nec-ab-poor1.dat");
         Senses sen = new Senses(DATA + LANG + "/senses.dat"); // sense dictionary
-        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Casi...");
+        Analizador.labelEstado.setText("Análisis de Dependencias: Casi...");
         Ukb dis = new Ukb(DATA + LANG + "/ukb.dat"); // sense disambiguator
         // Extract the tokens from the line of text.
         ListWord l = tk.tokenize(line);
         ListSentence ls = sp.split(l, false);
         // Perform morphological analysis
         mf.analyze(ls);
-
+//
+//        
+//        Sentence sent=ls.back();
+//        
+//        VectorWord vec=sent.getWords();
+//        Sentence sent1=new Sentence();
+//        Word pal=vec.get(3);
+//        Analysis analisis=new Analysis();
+//                    
+//        analisis.setTag("SPS00");
+//                    
+//        analisis.setLemma(vec.get(3).getLemma());
+//        
+//        pal.setAnalysis(analisis);
+//        vec.set(3, pal);
+//        sent1.pushBack(vec.get(0));
+//        sent1.pushBack(vec.get(1));
+//        sent1.pushBack(vec.get(2));
+//        sent1.pushBack(pal);
+//        sent1.pushBack(vec.get(4));
+//        sent1.pushBack(vec.get(5));
+//        
+//        sent.delete();
+//        //sent.
+//        ls.pushFront(sent1);
+//        
+//        System.out.println("ImprimiendoLemita: "+vec.get(3).getLemma());
+        
+        
+        
+        
+        
+        
         // Perform part-of-speech tagging.
         tg.analyze(ls);
         
@@ -145,7 +178,7 @@ public class Analizar implements Runnable {
         
         // Dependency parser
         dep.analyze(ls);
-        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Completado");
+        Analizador.labelEstado.setText("Análisis de Dependencias: Completado");
         
         System.out.println("-------- DEPENDENCY PARSER results -----------");
 
@@ -161,7 +194,7 @@ public class Analizar implements Runnable {
         /*
         *Se llama a la clase encargada de crear la gráfica del árbol
         */
-        PruebaEtiquetador.labelEstado.setText("Dibujando árbol de dependencias...");
+        Analizador.labelEstado.setText("Dibujando árbol de dependencias...");
         Graficador graficador = new Graficador(relacionArbol);
         graficador.crearGraficaArbol();
     }
@@ -182,7 +215,7 @@ public class Analizar implements Runnable {
             }
         }
         System.out.println(oraciondes);
-        PruebaEtiquetador.labelEstado.setText("Desambiguación: Completo.");
+        Analizador.labelEstado.setText("Desambiguación: Completo.");
         return oraciondes;
     }
 

@@ -11,7 +11,6 @@
                 <languaje>Spanish</languaje>
                 <word>café</word>
             </concept>    
-                        
             <concept nombre="leche">
                 <languaje>Spanish</languaje>
                 <word>leche</word>
@@ -21,7 +20,7 @@
     
     <concept nombre="persona">
         <languaje>Spanish</languaje>        
-        <word>leche</word>
+        <word>persona</word>
         <concept nombre="hermano">
             <languaje>Spanish</languaje>        
             <word>leche</word>
@@ -35,10 +34,59 @@
             <languaje>Spanish</languaje>
             <word>taza</word>
         </concept>
-                
+
         <concept nombre="vaso">
             <languaje>Spanish</languaje>
             <word>vaso</word>
         </concept>
     </concept>
+    
+    <concept nombre="alimento">        
+        <languaje>Spanish</languaje>
+        <word>alimento</word>
+        
+        <concept nombre="pizza">         
+            <languaje>Spanish</languaje> 
+            <word>pizza</word>         
+        </concept>
+              
+        <concept nombre="tacos">         
+            <languaje>Spanish</languaje> 
+            <word>tacos</word>         
+        </concept>
+                
+        <concept nombre="donas">         
+            <languaje>Spanish</languaje> 
+            <word>donas</word>         
+        </concept>
+                
+        <concept nombre="pozole">         
+            <languaje>Spanish</languaje> 
+            <word>pozole</word>         
+        </concept>
+                
+        <concept nombre="mole">         
+            <languaje>Spanish</languaje> 
+            <word>mole</word>         
+        </concept>
+        <concept nombre="bistec">         
+            <languaje>Spanish</languaje> 
+            <word>bistec</word>         
+        </concept>
+    </concept>
+    
+    <concept nombre="modo">        
+        <languaje>Spanish</languaje>
+        <word>modo</word>
+        <concept nombre="felicidad">         
+            <languaje>Spanish</languaje> 
+            <word>felicidad</word>         
+        </concept>
+                
+        <concept nombre="tristeza">         
+            <languaje>Spanish</languaje> 
+            <word>tristeza</word>         
+        </concept>
+    </concept>
+
 </concept>

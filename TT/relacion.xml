@@ -1,5 +1,9 @@
 <concept nombre="relacion">
     <concept nombre="con">
+        <concept nombre="del-modo-con">
+            <agente>alimento</agente>
+            <pasivo>modo</pasivo>
+        </concept>
         <concept nombre="que-contiene">
             <agente>bebida</agente>
             <pasivo>bebida</pasivo>

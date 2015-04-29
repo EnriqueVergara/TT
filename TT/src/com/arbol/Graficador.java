@@ -18,7 +18,7 @@ import java.util.List;
  * @author bruno
  */
 public class Graficador {
-    String path = "/home/bruno/NetBeansProjects/TT/TT/src/com/arbol";
+    String path = "/home/enrique/NetBeansProjects/TT/TT/src/com/arbol";
     List<String> relacionArbol;
     
     public Graficador(List<String> relacionArbol) {
