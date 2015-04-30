@@ -1,9 +1,21 @@
 package analizador;
 
 import com.arbol.HiloProgressBar;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Analizador extends javax.swing.JFrame {
+    Freeling analizador=new Freeling();
+    private static CargaOntologia load = new CargaOntologia();    
+    private static List<Concepto>[] indexOnto = new ArrayList[24];
+    private static List<Relacion> indexRel = new ArrayList<>();
+    
     public Analizador() {
+         
+        load.cargaOntologia();
+        indexRel=load.getIndexRel();
+        indexOnto=load.getIndexOnto();
+
         initComponents();
         this.setLocationRelativeTo(null);
         progressBar.setStringPainted(true);
@@ -75,7 +87,7 @@ public class Analizador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Thread(new Analizar(line.getText())).start();
+        new Thread(new Analizar(line.getText(),analizador,indexOnto,indexRel)).start();
         new Thread(new HiloProgressBar()).start();
     }//GEN-LAST:event_jButton1ActionPerformed
     public static void main(String args[]) {

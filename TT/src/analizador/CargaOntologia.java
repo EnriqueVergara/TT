@@ -19,7 +19,7 @@ public class CargaOntologia {
  //   Relacion con=new Relacion();
     public void cargaOntologia(){
         SAXBuilder saxB=new SAXBuilder();
-        raiz.setNombre("Root");        
+        raiz.setNombre("Root");  
         initIndex();
         try{
             Document document=(Document)saxB.build(new File(ontoPath));
@@ -42,11 +42,12 @@ public class CargaOntologia {
         nuevo.setHijos(hijosRel);
         try{
             nuevo.setNombre(raiz.getAttributeValue("nombre"));
-            nuevo.setAgente(buscar.buscarEnIndice(getIndexOnto(), raiz.getChild("agente").getValue()));
-            nuevo.setPasivo(buscar.buscarEnIndice(getIndexOnto(), raiz.getChild("pasivo").getValue()));
+            //System.out.println(nuevo.getNombre());
+            nuevo.setAgente(buscar.buscarEnIndice(indexOnto, raiz.getChild("agente").getValue()));
+            nuevo.setPasivo(buscar.buscarEnIndice(indexOnto, raiz.getChild("pasivo").getValue()));
         }catch(Exception ex){
-           // ex.printStackTrace();
-            getIndexRel().add(nuevo);
+            //ex.printStackTrace();
+            indexRel.add(nuevo);
         }
         return nuevo;
     }
@@ -57,15 +58,18 @@ public class CargaOntologia {
             nuevo.setLenguaje(raiz.getChild("languaje").getValue());
             nuevo.setWord(raiz.getChild("word").getValue());
             nuevo.setPadre(padre);
+           // System.out.println(nuevo.getNombre());
             //Nuevo concepto creado
             
             //Se guarda el valor en el indice
-            List<Concepto> index=this.getIndexOnto()[nuevo.getNombre().charAt(0)-97];
+            List<Concepto> index=indexOnto[nuevo.getNombre().charAt(0)-97];
             index.add(nuevo);
-            this.indexOnto[nuevo.getNombre().charAt(0)-97]=index;
+             
+            indexOnto[nuevo.getNombre().charAt(0)-97]=index;
+          //  System.out.println(indexOnto[nuevo.getNombre().charAt(0)-97].get(0).getNombre());
        
         }catch(Exception a){
-         //   a.printStackTrace();
+            a.printStackTrace();
         }
          
         List<Element> hijos=raiz.getChildren("concept"); //Los hijos son aquellos con la etiqueta concept
