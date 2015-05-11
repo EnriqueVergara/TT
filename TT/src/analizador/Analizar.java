@@ -1,33 +1,43 @@
 package analizador;
 
 import com.arbol.Graficador;
-import edu.upc.freeling.Analysis;
+import edu.upc.freeling.ChartParser;
+import edu.upc.freeling.DepTxala;
 import edu.upc.freeling.Depnode;
+import edu.upc.freeling.HmmTagger;
 import edu.upc.freeling.ListSentence;
 import edu.upc.freeling.ListSentenceIterator;
 import edu.upc.freeling.ListWord;
 import edu.upc.freeling.ListWordIterator;
+import edu.upc.freeling.Maco;
+import edu.upc.freeling.MacoOptions;
+import edu.upc.freeling.Nec;
 import edu.upc.freeling.PreorderIteratorDepnode;
+import edu.upc.freeling.Senses;
 import edu.upc.freeling.Sentence;
+import edu.upc.freeling.Splitter;
+import edu.upc.freeling.Tokenizer;
 import edu.upc.freeling.TreeDepnode;
+import edu.upc.freeling.Ukb;
 import edu.upc.freeling.Util;
-import edu.upc.freeling.VectorWord;
 import edu.upc.freeling.Word;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Analizar implements Runnable {
-    private List<Concepto>[] indexOnto = new ArrayList[24];
-    private List<Relacion> indexRel = new ArrayList<>();
-    private final Freeling analizador; 
+
+    private static final String FREELINGDIR = "/usr/local";
+    private static final String DATA = FREELINGDIR + "/share/freeling/";
+    private static final String LANG = "es";
     public static boolean termino = false;
     String line;
 
     @Override
     public void run() {
         termino = false;
+//        PruebaEtiquetador.progressBar.setIndeterminate(true);
         String oracion = analizarOracion();
-        Analizador.tagged.setText(oracion);
+        PruebaEtiquetador.tagged.setText(oracion);
         try {
             Thread.sleep( 1000 );
         } catch (InterruptedException e){
@@ -36,83 +46,114 @@ public class Analizar implements Runnable {
         termino = true;
     }
     
-    public Analizar(String line,Freeling analizador,List<Concepto>[] indexOnto,List<Relacion> indexRel) { 
-       this.indexOnto=indexOnto;
-       this.indexRel=indexRel; 
-       this.analizador=analizador;
-       this.line = line;
+    public Analizar(String line) {
+        System.loadLibrary("freeling_javaAPI");
+        Util.initLocale("default");
+        load.cargaOntologia();
+        indexOnto = load.getIndexOnto();
+        indexRel = load.getIndexRel();
+        this.line = line;
     }
 
-    public String analizarOracion() { //Inicia el proceso de analisis de una oracion, devuelve la oracion con informacion adicional        
-        ListWord l = analizador.tk.tokenize(line);
-        ListSentence listAux=new ListSentence();
-        ListSentence ls = analizador.sp.split(l, false);    //Lista de oraciones analizadas por freeling
-        analizador.mf.analyze(ls);  /*   Llama al etiquetador de Freeling   */
-        String desambiguado;
-                    
-        Analysis analisis;
-        Word wordAux=new Word();    
-        Sentence sentAux=new Sentence();
-         ListSentenceIterator sIt = new ListSentenceIterator(ls); 
-         while(sIt.hasNext()){
-            Sentence sent=sIt.next();
-            VectorWord vec=sent.getWords();            
-            sentAux=new Sentence();
-            for(int i=0;i<vec.size();i++){
-                if(vec.get(i).getTag().startsWith("SP")){
-                     analisis=new Analysis();
-                     wordAux=new Word();
-                     analisis.setTag("SPS00");
-                    // analisis.setTag(vec.get(i).getTag());
-                     desambiguado=des.desambiguaTripleta(
-                                     busca.buscarEnIndice(indexOnto, buscaPrevio(vec, i)), 
-                                     busca.buscarEnIndice(indexOnto, buscaPosterior(vec, i)), 
-                                     busca.buscarEnIndiceRel(indexRel, vec.get(i).getLemma()));
-                                          
-                     analisis.setLemma(desambiguado);
-                     wordAux.setAnalysis(analisis);
-                     wordAux.setForm(vec.get(i).getForm());
-                     sentAux.pushBack(wordAux);
-                }
-                else{           
-                    sentAux.pushBack(vec.get(i));
-                }
-            }
-            listAux.pushBack(sentAux);
-        }
-        
-       
-        ListSentenceIterator sIta = new ListSentenceIterator(listAux); //Iterador de oraciones
-        List<String> result = new ArrayList(); //Cada oración con informacion semantica adicional se guarda en un arreglo
-        while (sIta.hasNext()) {
-            Sentence s = sIta.next();
+    public String analizarOracion() {
+        MacoOptions op = new MacoOptions(LANG);
+        op.setActiveModules(false, true, true, true,
+                true, true, true,
+                true, true, true);
+        op.setDataFiles(
+                "",
+                DATA + LANG + "/locucions.dat",
+                DATA + LANG + "/quantities.dat",
+                DATA + LANG + "/afixos.dat",
+                DATA + LANG + "/probabilitats.dat",
+                DATA + LANG + "/dicc.src",
+                DATA + LANG + "/np.dat",
+                DATA + "common/punct.dat");
+        Splitter sp = new Splitter(DATA + LANG + "/splitter.dat");
+        Maco mf = new Maco(op);
+        Tokenizer tk = new Tokenizer(DATA + LANG + "/tokenizer.dat");
+        ListWord l = tk.tokenize(line);
+        ListSentence ls = sp.split(l, false);
+        //Realiza etiquetado
+        mf.analyze(ls);
+        //Recupera la lista de los elementos encontrados  Lista de oraciones 
+        ListSentenceIterator sIt = new ListSentenceIterator(ls);
+        List<String> result = new ArrayList();
+        while (sIt.hasNext()) {
+            Sentence s = sIt.next();
             //Iterador de palabras
             ListWordIterator wIt = new ListWordIterator(s);
             List<Word> palabras = new ArrayList();
             while (wIt.hasNext()) {
                 Word w = wIt.next();
-                System.out.println(w.getForm());
+                palabras.add(w);
             }
+            //Oracion con info semantica adicional
+            result.add(desambiguarPreposiciones(palabras));
         }
-         
-        analizador.tg.analyze(listAux);
+        String res = "";
+        for (int i = 0; i < result.size(); i++) {
+            res += result.get(i) + "\n";
+        }
+        analizarDep(res);
+        return res;
+    }
+
+    public void analizarDep(String line) {
+        System.out.println(line);
+        MacoOptions op = new MacoOptions(LANG);
+        op.setActiveModules(false, true, true, true,
+                true, true, true,
+                true, true, true);
+        op.setDataFiles(
+                "",
+                DATA + LANG + "/locucions.dat",
+                DATA + LANG + "/quantities.dat",
+                DATA + LANG + "/afixos.dat",
+                DATA + LANG + "/probabilitats.dat",
+                DATA + LANG + "/dicc.src",
+                DATA + LANG + "/np.dat",
+                DATA + "common/punct.dat");
+        // Create analyzers.
+        Tokenizer tk = new Tokenizer(DATA + LANG + "/tokenizer.dat");
+        Splitter sp = new Splitter(DATA + LANG + "/splitter.dat");
+        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: En Progreso...");
+        Maco mf = new Maco(op);
+        ChartParser parser = new ChartParser(
+                DATA + LANG + "/chunker/grammar-chunk.dat");
+        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Espere...");
+        DepTxala dep = new DepTxala(DATA + LANG + "/dep/dependences.dat",
+                parser.getStartSymbol());
+        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Aguante un poco más...");
+        HmmTagger tg = new HmmTagger(DATA + LANG + "/tagger.dat", true, 2);
+        Nec neclass = new Nec(DATA + LANG + "/nerc/nec/nec-ab-poor1.dat");
+        Senses sen = new Senses(DATA + LANG + "/senses.dat"); // sense dictionary
+        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Casi...");
+        Ukb dis = new Ukb(DATA + LANG + "/ukb.dat"); // sense disambiguator
+        // Extract the tokens from the line of text.
+        ListWord l = tk.tokenize(line);
+        ListSentence ls = sp.split(l, false);
+        // Perform morphological analysis
+        mf.analyze(ls);
+
+        // Perform part-of-speech tagging.
+        tg.analyze(ls);
         
         // Perform named entity (NE) classificiation.
         // Chunk parser
-        analizador.parser.analyze(listAux);
+        parser.analyze(ls);
         
         // Dependency parser
-        analizador.dep.analyze(listAux);
-        
-        Analizador.labelEstado.setText("Análisis de Dependencias: Completado");
+        dep.analyze(ls);
+        PruebaEtiquetador.labelEstado.setText("Análisis de Dependencias: Completado");
         
         System.out.println("-------- DEPENDENCY PARSER results -----------");
 
-        ListSentenceIterator sIte = new ListSentenceIterator(listAux);
-        while (sIte.hasNext()) {
+        ListSentenceIterator sIt = new ListSentenceIterator(ls);
+        while (sIt.hasNext()) {
             String nuevaOracion = "NuevaOracion";
             relacionArbol.add(nuevaOracion);
-            Sentence s = sIte.next();
+            Sentence s = sIt.next();
             TreeDepnode tree = s.getDepTree();
             printDepTree(0, tree);
         }
@@ -120,27 +161,46 @@ public class Analizar implements Runnable {
         /*
         *Se llama a la clase encargada de crear la gráfica del árbol
         */
-        Analizador.labelEstado.setText("Dibujando árbol de dependencias...");
+        PruebaEtiquetador.labelEstado.setText("Dibujando árbol de dependencias...");
         Graficador graficador = new Graficador(relacionArbol);
         graficador.crearGraficaArbol();
-        return "";
     }
 
-    private String buscaPrevio(VectorWord vec, int index) {
+    private String desambiguarPreposiciones(List<Word> palabras) {
+        int i;
+        String desambiguado = "";
+        String oraciondes = "";
+        for (i = 0; i < palabras.size(); i++) {
+            if (palabras.get(i).getTag().startsWith("SP")) {
+                desambiguado = des.desambiguaTripleta(
+                        busca.buscarEnIndice(indexOnto, buscaPrevio(palabras, i)),
+                        busca.buscarEnIndice(indexOnto, buscaPosterior(palabras, i)),
+                        busca.buscarEnIndiceRel(indexRel, palabras.get(i).getLemma()));
+                oraciondes += desambiguado + " ";
+            } else {
+                oraciondes += palabras.get(i).getForm() + " ";
+            }
+        }
+        System.out.println(oraciondes);
+        PruebaEtiquetador.labelEstado.setText("Desambiguación: Completo.");
+        return oraciondes;
+    }
+
+    private String buscaPrevio(List<Word> palabras, int index) {
         int i;
         for (i = index; i >= 0; i--) {
-            if (vec.get(i).getTag().startsWith("NC")) {
-                return vec.get(i).getLemma();
+            if (palabras.get(i).getTag().startsWith("NC")) {
+                return palabras.get(i).getLemma();
             }
         }
         return "";
     }
 
-    private String buscaPosterior(VectorWord vec, int index) {
+    private String buscaPosterior(List<Word> palabras, int index) {
         int i;
-        for (i = index; i < vec.size(); i++) {
-            if (vec.get(i).getTag().startsWith("NC")) {
-                return vec.get(i).getLemma();
+        for (i = index; i < palabras.size(); i++) {
+            if (palabras.get(i).getTag().startsWith("NC")) {
+                return palabras.get(i).getLemma();
             }
         }
         return null;
@@ -237,6 +297,10 @@ public class Analizar implements Runnable {
         System.out.println("");
     }
 
+    public static Concepto onto;
+    private static List<Concepto>[] indexOnto = new ArrayList[24];
+    private static List<Relacion> indexRel = new ArrayList<>();
+    private CargaOntologia load = new CargaOntologia();
     private BuscadorConceptos busca = new BuscadorConceptos();
     private Desambiguador des = new Desambiguador();
     private static List<String> relacionArbol = new ArrayList<>();

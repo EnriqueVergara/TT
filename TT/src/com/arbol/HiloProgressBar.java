@@ -6,7 +6,7 @@
 package com.arbol;
 
 import analizador.Analizar;
-import analizador.Analizador;
+import analizador.PruebaEtiquetador;
 
 /**
  *
@@ -21,8 +21,8 @@ public class HiloProgressBar implements Runnable {
         i = 1;
         while(!Analizar.termino) {
             i = (i > 100) ? 1 : i+1;
-            Analizador.progressBar.setValue(i);
-            Analizador.progressBar.repaint();
+            PruebaEtiquetador.progressBar.setValue(i);
+            PruebaEtiquetador.progressBar.repaint();
             try {
                 Thread.sleep(this.value);
             } catch (InterruptedException e) {
@@ -31,7 +31,7 @@ public class HiloProgressBar implements Runnable {
             
             if(Analizar.termino) {
 //                PruebaEtiquetador.progressBar.setIndeterminate(false);
-                Analizador.progressBar.setValue(100);
+                PruebaEtiquetador.progressBar.setValue(100);
 //                PruebaEtiquetador.progressBar.setString("100%");
                 System.out.println("Terminó");
                 break;
