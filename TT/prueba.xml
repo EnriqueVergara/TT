@@ -39,6 +39,12 @@
             <languaje>Spanish</languaje>
             <word>vaso</word>
         </concept>
+        
+                
+        <concept nombre="olla">
+            <languaje>Spanish</languaje>
+            <word>olla</word>
+        </concept>
     </concept>
     
     <concept nombre="alimento">        
@@ -86,6 +92,59 @@
         <concept nombre="tristeza">         
             <languaje>Spanish</languaje> 
             <word>tristeza</word>         
+        </concept>
+    </concept>
+    
+    <concept nombre="accion">
+        <languaje>Spanish</languaje>
+        <word>acción</word>
+        <concept nombre="jugar">
+            <languaje>Spanish</languaje>
+            <word>jugar</word>
+        </concept>
+                
+        <concept nombre="bailar">
+            <languaje>Spanish</languaje>
+            <word>bailar</word>
+        </concept>
+                
+        <concept nombre="saltar">
+            <languaje>Spanish</languaje>
+            <word>saltar</word>
+        </concept>
+                
+        <concept nombre="comer">
+            <languaje>Spanish</languaje>
+            <word>comer</word>
+        </concept>
+    </concept>
+    
+    <concept nombre="territorio">
+        <languaje>Spanish</languaje>
+        <word>terrirorio</word>
+        <concept nombre="continente">
+            <languaje>Spanish</languaje>
+            <word>continente</word>
+        </concept>
+    </concept>
+    
+    <concept nombre="material">
+        <languaje>Spanish</languaje>
+        <word>material</word>
+        
+        <concept nombre="barro">
+            <languaje>Spanish</languaje>
+            <word>barro</word>
+        </concept>
+                
+        <concept nombre="madera">
+            <languaje>Spanish</languaje>
+            <word>madera</word>
+        </concept>
+                
+        <concept nombre="plastico">
+            <languaje>Spanish</languaje>
+            <word>plastico</word>
         </concept>
     </concept>
 

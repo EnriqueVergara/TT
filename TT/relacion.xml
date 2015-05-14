@@ -6,7 +6,9 @@
         </concept>
         <concept nombre="que-contiene">
             <agente>bebida</agente>
+            <tipoAgente>N</tipoAgente> <!--Indica que componente lexico sera el agente -->
             <pasivo>bebida</pasivo>
+            <tipoPasivo>N</tipoPasivo>
         </concept>
         <concept nombre="acompañado-de">     
             <agente>bebida</agente>
@@ -17,4 +19,16 @@
             <pasivo>bebida</pasivo>
         </concept>    
     </concept>    
+    
+    <concept nombre="de">
+        <concept nombre="hecho-de">
+            <agente>contenedor</agente>
+            <pasivo>material</pasivo>
+        </concept>  
+                
+        <concept nombre="que-contiene">
+            <agente>contenedor</agente>
+            <pasivo>alimento</pasivo>
+        </concept> 
+    </concept>
 </concept>
