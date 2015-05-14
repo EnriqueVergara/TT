@@ -6,6 +6,8 @@ public class Relacion extends Concepto{
     private Concepto agente;
     private Concepto pasivo;
     private List<Relacion> hijos;
+    private String tipoAgente;
+    private String tipoPasivo;
     public Concepto getAgente() {
         return agente;
     }
@@ -19,18 +21,26 @@ public class Relacion extends Concepto{
         this.pasivo = pasivo;
     }
 
-    /**
-     * @return the hijos
-     */
     public List<Relacion> getHijos() {
         return hijos;
     }
-
-    /**
-     * @param hijos the hijos to set
-     */
     public void setHijos(List<Relacion> hijos) {
         this.hijos = hijos;
+    }
+    public String getTipoAgente() {
+        return tipoAgente;
+    }
+
+    public void setTipoAgente(String tipoAgente) {
+        this.tipoAgente = tipoAgente;
+    }
+
+    public String getTipoPasivo() {
+        return tipoPasivo;
+    }
+
+    public void setTipoPasivo(String tipoPasivo) {
+        this.tipoPasivo = tipoPasivo;
     }
     
     

@@ -45,6 +45,15 @@ public class CargaOntologia {
             //System.out.println(nuevo.getNombre());
             nuevo.setAgente(buscar.buscarEnIndice(indexOnto, raiz.getChild("agente").getValue()));
             nuevo.setPasivo(buscar.buscarEnIndice(indexOnto, raiz.getChild("pasivo").getValue()));
+            try{
+                nuevo.setTipoAgente(raiz.getChild("tipoAgente").getValue());
+                nuevo.setTipoPasivo(raiz.getChild("tipoPasivo").getValue());
+            }    
+            catch(Exception ex){
+                nuevo.setTipoAgente("N");
+                nuevo.setTipoPasivo("N");
+                        
+            }
         }catch(Exception ex){
             //ex.printStackTrace();
             indexRel.add(nuevo);
