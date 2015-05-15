@@ -2,25 +2,14 @@ package analizador;
 
 import com.arbol.Graficador;
 import edu.upc.freeling.Analysis;
-import edu.upc.freeling.ChartParser;
-import edu.upc.freeling.DepTxala;
 import edu.upc.freeling.Depnode;
-import edu.upc.freeling.HmmTagger;
 import edu.upc.freeling.ListSentence;
 import edu.upc.freeling.ListSentenceIterator;
 import edu.upc.freeling.ListWord;
 import edu.upc.freeling.ListWordIterator;
-import edu.upc.freeling.Maco;
-import edu.upc.freeling.MacoOptions;
-import edu.upc.freeling.Nec;
 import edu.upc.freeling.PreorderIteratorDepnode;
-import edu.upc.freeling.Senses;
 import edu.upc.freeling.Sentence;
-import edu.upc.freeling.Splitter;
-import edu.upc.freeling.Tokenizer;
 import edu.upc.freeling.TreeDepnode;
-import edu.upc.freeling.Ukb;
-import edu.upc.freeling.Util;
 import edu.upc.freeling.VectorWord;
 import edu.upc.freeling.Word;
 import java.util.ArrayList;
@@ -82,15 +71,17 @@ public String analizarOracion() { //Inicia el proceso de analisis de una oracion
                     for(int cont=0;cont<rel.getHijos().size();cont++){
                         agente=busca.buscarEnIndice(indexOnto, buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
                         pasivo=busca.buscarEnIndice(indexOnto, buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
-                        System.out.println(rel.getHijos().get(cont).getNombre()+"  "+rel.getHijos().get(cont).getTipoAgente()+"  "+pasivo.getNombre());
+                        //System.out.println(rel.getHijos().get(cont).getNombre()+"  "+rel.getHijos().get(cont).getTipoAgente()+"  "+pasivo.getNombre());
                         if(des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
                             desambiguado=rel.getHijos().get(cont).getNombre();    
                             cont=rel.getHijos().size();
                         }
                     } 
+                    
                     analisis.setLemma(desambiguado);
                     wordAux.setAnalysis(analisis);
-                    wordAux.setForm(vec.get(i).getForm()); 
+                    //wordAux.setForm(vec.get(i).getForm()); 
+                    wordAux.setForm(desambiguado);
                     sentAux.pushBack(wordAux);
                 }
                 else{           
@@ -110,7 +101,7 @@ public String analizarOracion() { //Inicia el proceso de analisis de una oracion
             List<Word> palabras = new ArrayList();
             while (wIt.hasNext()) {
                 Word w = wIt.next();
-                System.out.println(w.getForm());
+                //System.out.println(w.getForm());
             }
         }
          
