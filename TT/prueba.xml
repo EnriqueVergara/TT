@@ -1,6 +1,32 @@
 <concept nombre="entidad">
     <languaje>Spanish</languaje>
     <word>Entidad fisica</word>
+    
+    <concept nombre="objeto físico">
+        <concept nombre="artefacto">
+            <concept nombre="herramienta">
+                <concept nombre="herramienta de jardín">
+                    <concept nombre="podadora">
+                    </concept>
+                </concept>
+            </concept>
+            
+        </concept>
+    </concept>
+    
+    <concept nombre="materia">
+        <concept nombre="sustancia">
+            <concept nombre="combustible">
+                <concept nombre="gasolina">
+                </concept>
+                <concept nombre="diesel">
+                </concept>
+                <concept nombre="gas natural">
+                </concept>
+            </concept>
+        </concept>
+    </concept>
+    
     <concept nombre="liquido">        
         <languaje>Spanish</languaje>
         <word>bebida</word> 
@@ -102,6 +128,28 @@
             <languaje>Spanish</languaje>
             <word>jugar</word>
         </concept>
+        
+        <concept nombre="desplazar">
+            <languaje>Spanish</languaje>
+            <word>desplazar</word>
+            <concept nombre="ir">
+            </concept>
+            <concept nombre="viajar">
+                <languaje>Spanish</languaje>
+                <word>viajar</word>
+            </concept>
+            
+            <concept nombre="trasladar">
+                <languaje>Spanish</languaje>
+                <word>trasladar</word>
+            </concept>
+            
+            <concept nombre="mover">
+                <languaje>Spanish</languaje>
+                <word>mover</word>
+            </concept>
+            
+        </concept>
                 
         <concept nombre="bailar">
             <languaje>Spanish</languaje>
@@ -125,6 +173,36 @@
         <concept nombre="continente">
             <languaje>Spanish</languaje>
             <word>continente</word>
+            <concept nombre="europa">
+            </concept>
+        </concept>
+        <concept nombre="país"> 
+            <concept nombre="méxico">
+            </concept>    
+        </concept>
+            
+        <concept nombre="ciudad">
+            <concept nombre="madrid">
+            </concept>
+            <concept nombre="guadalajara">
+            </concept>                
+            <concept nombre="df">
+            </concept>
+            
+        </concept>
+        
+        <concept nombre="estado">
+            <concept nombre="oaxaca">
+            </concept>
+                        
+            <concept nombre="sonora">
+            </concept>
+                      
+            <concept nombre="hidalgo">
+            </concept>
+                                  
+            <concept nombre="jalisco">
+            </concept>
         </concept>
     </concept>
     

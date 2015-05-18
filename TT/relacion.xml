@@ -1,4 +1,21 @@
 <concept nombre="relacion">
+    <concept nombre="a">
+        <concept nombre="rumbo-a">
+            <agente>desplazar</agente>
+            <tipoAgente>V</tipoAgente>
+            <pasivo>territorio</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+        
+        <concept nombre="que-funciona-con">            
+            <agente>artefacto</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>combustible</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+        
+    </concept>
+    
     <concept nombre="con">
         <concept nombre="del-modo-con">
             <agente>alimento</agente>
@@ -10,7 +27,7 @@
             <pasivo>bebida</pasivo>
             <tipoPasivo>N</tipoPasivo>
         </concept>
-        <concept nombre="acompañado-de">     
+        <concept nombre="en-compañia-de">     
             <agente>bebida</agente>
             <pasivo>persona</pasivo>
         </concept>            
