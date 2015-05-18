@@ -6,6 +6,7 @@ import java.util.List;
 public class BuscadorConceptos {
     public Concepto buscarEnIndice(List<Concepto>[] index,String concepto){
         Concepto result=new Concepto();
+        concepto=concepto.toLowerCase();
         int i=0,j=0;
         for(i=0;i<24;i++){
             for(j=0;j<index[i].size();j++){

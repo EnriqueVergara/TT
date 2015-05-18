@@ -64,8 +64,8 @@ public class CargaOntologia {
         Concepto nuevo=new Concepto(); //Nuevo objeto de tipo Concepto    
         try{
             nuevo.setNombre(raiz.getAttributeValue("nombre"));
-            nuevo.setLenguaje(raiz.getChild("languaje").getValue());
-            nuevo.setWord(raiz.getChild("word").getValue());
+//            nuevo.setLenguaje(raiz.getChild("languaje").getValue());
+  //          nuevo.setWord(raiz.getChild("word").getValue());
             nuevo.setPadre(padre);
            // System.out.println(nuevo.getNombre());
             //Nuevo concepto creado
