@@ -35,11 +35,17 @@
             <agente>contenedor</agente>    
             <pasivo>bebida</pasivo>
         </concept>    
+        <concept nombre="con-el-proposito">
+            <agente>accion</agente>
+            <tipoAgente>V</tipoAgente>
+            <pasivo></pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
     </concept>    
     
     <concept nombre="de">
         <concept nombre="hecho-de">
-            <agente>contenedor</agente>
+            <agente>entidad fisica</agente>
             <pasivo>material</pasivo>
         </concept>  
                 
@@ -47,5 +53,20 @@
             <agente>contenedor</agente>
             <pasivo>alimento</pasivo>
         </concept> 
+        
+        <concept nombre="propiedad-de">
+            <agente>objeto físico</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>nombre_propio</pasivo>
+            <tipoPasivo>NP</tipoPasivo>
+        </concept>
+    </concept>
+    <concept nombre="para">
+        <concept nombre="con-rumbo-a">
+            <agente>transporte</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>territorio</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
     </concept>
 </concept>

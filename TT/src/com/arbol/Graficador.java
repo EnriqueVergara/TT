@@ -5,7 +5,7 @@
  */
 package com.arbol;
 
-import analizador.PruebaEtiquetador;
+import analizador.Analizador;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileWriter;
@@ -21,7 +21,7 @@ import javax.swing.JLabel;
  * @author bruno
  */
 public class Graficador {
-    String path = "/home/bruno/NetBeansProjects/TT/TT/src/com/arbol";
+    String path = "/home/enrique/NetBeansProjects/TT/TT/src/com/arbol";
     List<String> relacionArbol;
     
     public Graficador(List<String> relacionArbol) {
@@ -80,29 +80,40 @@ public class Graficador {
             } 
         }
         compilarGrafo(oraciones);
-        
     }
     
     public void compilarGrafo(int oraciones) {
-        PruebaEtiquetador.panelImagenes.setLayout(new java.awt.GridLayout(0, oraciones));
+        Analizador.panelImagenes.removeAll();
+        Analizador.panelImagenes.setLayout(new java.awt.GridLayout(0, oraciones));
         
+//        for(int i = 0; i < oraciones; i++) {
+//            File f = new File(path + "/outfile" + i + ".jpg");
+//            if(f.exists()) {
+//                f.delete();
+//            }
+//        }
+        
+        //Compila primero los árboles
         for(int i = 0; i < oraciones; i++) {
             JLabel etiqueta = new JLabel();
             
             try {
                 String cmd = "dot -Tjpg " + path + "/Arbol" + i +".txt -o " + path + "/outfile" + i + ".jpg";
                 Runtime.getRuntime().exec(cmd);
-
+                
                 String imgPath = path + "/outfile" + i + ".jpg";
                 ImageIcon icon = new ImageIcon(imgPath);
                 etiqueta.setIcon(icon);
-                
-                PruebaEtiquetador.panelImagenes.add(etiqueta);
+
+                Analizador.panelImagenes.add(etiqueta);
                 etiqueta.setVisible(true);
-                PruebaEtiquetador.panelImagenes.updateUI();
+            
+                System.out.println("Compilado imagen " + i);
             } catch (IOException e) {
                 System.out.println("Error al generar el árbol. " + e.getMessage());
-            }
+            } 
         }
+        
+        Analizador.panelImagenes.updateUI();
     }
 }
