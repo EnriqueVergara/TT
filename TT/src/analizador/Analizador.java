@@ -10,15 +10,18 @@ public class Analizador extends javax.swing.JFrame {
     private static CargaOntologia load = new CargaOntologia();    
     private static List<Concepto>[] indexOnto = new ArrayList[24];
     private static List<Relacion> indexRel = new ArrayList<>();
+    public static int oraciones;
+    Thread hiloAnalizar;
+    Thread hiloProgressBar;
     
     public Analizador() {
-                
         load.cargaOntologia();
         indexRel=load.getIndexRel();
         indexOnto=load.getIndexOnto();
         initComponents();
         this.setLocationRelativeTo(null);
         progressBar.setStringPainted(true);
+        buttonNuevo.setEnabled(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -31,6 +34,7 @@ public class Analizador extends javax.swing.JFrame {
         progressBar = new javax.swing.JProgressBar();
         labelEstado = new javax.swing.JLabel();
         panelImagenes = new javax.swing.JPanel();
+        buttonNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +58,13 @@ public class Analizador extends javax.swing.JFrame {
             .addGap(0, 326, Short.MAX_VALUE)
         );
 
+        buttonNuevo.setText("Nueva oración");
+        buttonNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNuevoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,7 +73,7 @@ public class Analizador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 143, Short.MAX_VALUE)
                         .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(121, 121, 121))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -70,12 +81,15 @@ public class Analizador extends javax.swing.JFrame {
                             .addComponent(panelImagenes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelEstado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(line, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tagged, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jButton1))
-                                .addGap(0, 289, Short.MAX_VALUE))
-                            .addComponent(tagged, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(buttonNuevo)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -86,7 +100,9 @@ public class Analizador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(line, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(buttonNuevo))
                 .addGap(16, 16, 16)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -102,9 +118,24 @@ public class Analizador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Thread(new Analizar(line.getText(),analizador,indexOnto,indexRel)).start();
-        new Thread(new HiloProgressBar()).start();
+        hiloAnalizar = new Thread(new Analizar(line.getText(),analizador,indexOnto,indexRel));
+        hiloProgressBar = new Thread(new HiloProgressBar());
+        
+        hiloAnalizar.start();
+        hiloProgressBar.start();
+        buttonNuevo.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void buttonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevoActionPerformed
+        hiloAnalizar.interrupt();
+        hiloProgressBar.interrupt();
+        
+        panelImagenes.removeAll();
+        panelImagenes.updateUI();
+        progressBar.setValue(0);
+        buttonNuevo.setEnabled(false);
+    }//GEN-LAST:event_buttonNuevoActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -139,6 +170,7 @@ public class Analizador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonNuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel labelEstado;

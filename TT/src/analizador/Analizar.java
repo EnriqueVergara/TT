@@ -14,6 +14,8 @@ import edu.upc.freeling.VectorWord;
 import edu.upc.freeling.Word;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Analizar implements Runnable {
     private List<Concepto>[] indexOnto = new ArrayList[24];
@@ -34,6 +36,7 @@ public class Analizar implements Runnable {
             System.err.println( e.getMessage() );
         }
         termino = true;
+        Thread.interrupted();
     }
     
     public Analizar(String line,Freeling analizador,List<Concepto>[] indexOnto,List<Relacion> indexRel) { 
@@ -126,7 +129,6 @@ public String analizarOracion() { //Inicia el proceso de analisis de una oracion
             TreeDepnode tree = s.getDepTree();
             printDepTree(0, tree);
         }
-       
         
         /*
         *Se llama a la clase encargada de crear la gráfica del árbol
@@ -251,6 +253,6 @@ public String analizarOracion() { //Inicia el proceso de analisis de una oracion
     public static Concepto onto;
     private CargaOntologia load = new CargaOntologia();
     private BuscadorConceptos busca = new BuscadorConceptos();
-    private Desambiguador des = new Desambiguador();
     private static List<String> relacionArbol = new ArrayList<>();
+    private Desambiguador des = new Desambiguador();
 }

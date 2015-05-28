@@ -6,22 +6,29 @@
 package com.arbol;
 
 import analizador.Analizador;
+import static analizador.Analizador.oraciones;
+import static analizador.Analizador.panelImagenes;
 import java.awt.Desktop;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author bruno
  */
 public class Graficador {
-    String path = "/home/enrique/NetBeansProjects/TT/TT/src/com/arbol";
+    String path = "/home/bruno/NetBeansProjects/TT/TT/src/com/arbol";
     List<String> relacionArbol;
     
     public Graficador(List<String> relacionArbol) {
@@ -32,8 +39,8 @@ public class Graficador {
         int oraciones = 0, borrar = 0;
         
         //Recorre el arreglo para saber cuantas oraciones vienen
-        for (int i = 0; i < relacionArbol.size(); i++) {
-            if (relacionArbol.get(i).equalsIgnoreCase("NuevaOracion")) {
+        for (String relacion : relacionArbol) {
+            if (relacion.equalsIgnoreCase("NuevaOracion")) {
                 oraciones++;
             }
         }
@@ -79,41 +86,48 @@ public class Graficador {
                 System.out.println(e.getMessage());
             } 
         }
+        
+        //Elimina las imagenes que estén creadas
+        for(int i = 0; i < oraciones; i++) {
+            File f = new File(path + "outfile" + i + ".jpg");
+            if(f.exists()) {
+                f.delete();
+            }
+        }
+        
+        Analizador.oraciones = oraciones;
         compilarGrafo(oraciones);
     }
     
     public void compilarGrafo(int oraciones) {
-        Analizador.panelImagenes.removeAll();
-        Analizador.panelImagenes.setLayout(new java.awt.GridLayout(0, oraciones));
-        
-//        for(int i = 0; i < oraciones; i++) {
-//            File f = new File(path + "/outfile" + i + ".jpg");
-//            if(f.exists()) {
-//                f.delete();
-//            }
-//        }
-        
-        //Compila primero los árboles
         for(int i = 0; i < oraciones; i++) {
-            JLabel etiqueta = new JLabel();
-            
             try {
                 String cmd = "dot -Tjpg " + path + "/Arbol" + i +".txt -o " + path + "/outfile" + i + ".jpg";
-                Runtime.getRuntime().exec(cmd);
-                
-                String imgPath = path + "/outfile" + i + ".jpg";
-                ImageIcon icon = new ImageIcon(imgPath);
-                etiqueta.setIcon(icon);
-
-                Analizador.panelImagenes.add(etiqueta);
-                etiqueta.setVisible(true);
-            
-                System.out.println("Compilado imagen " + i);
+                Process p = Runtime.getRuntime().exec(cmd);
+                p.waitFor();
+                Desktop.getDesktop().open(new File(path + "/outfile" + i + ".jpg"));
             } catch (IOException e) {
                 System.out.println("Error al generar el árbol. " + e.getMessage());
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Graficador.class.getName()).log(Level.SEVERE, null, ex);
             } 
         }
         
-        Analizador.panelImagenes.updateUI();
+        panelImagenes.removeAll();
+        panelImagenes.setLayout(new java.awt.GridLayout(0, oraciones));
+        
+        for(int i = 0; i < oraciones; i++) {
+            JLabel etiqueta = new JLabel();
+            
+            String imgPath = path + "/outfile" + i + ".jpg";
+            ImageIcon ic = new ImageIcon(imgPath);
+            Icon icon = new ImageIcon(ic.getImage().getScaledInstance(1,
+                        1, Image.SCALE_DEFAULT));
+            etiqueta.setIcon(ic);
+
+            Analizador.panelImagenes.add(etiqueta);
+            etiqueta.setVisible(true);
+            Analizador.panelImagenes.updateUI();
+        }
     }
 }

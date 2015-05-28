@@ -7,6 +7,8 @@ package com.arbol;
 
 import analizador.Analizar;
 import analizador.Analizador;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,5 +39,7 @@ public class HiloProgressBar implements Runnable {
                 break;
             }
         }
+        
+        Thread.interrupted();
     }
 }
