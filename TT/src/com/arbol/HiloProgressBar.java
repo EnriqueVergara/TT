@@ -5,8 +5,8 @@
  */
 package com.arbol;
 
-import analizador.Analizar;
-import analizador.Analizador;
+import com.TT.controller.Analizar;
+import com.TT.view.Analizador;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

@@ -5,9 +5,9 @@
  */
 package com.arbol;
 
-import analizador.Analizador;
-import static analizador.Analizador.oraciones;
-import static analizador.Analizador.panelImagenes;
+import com.TT.view.Analizador;
+import static com.TT.view.Analizador.oraciones;
+import static com.TT.view.Analizador.panelImagenes;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.io.File;
