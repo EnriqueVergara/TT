@@ -1,4 +1,4 @@
-package analizador;
+package com.TT.model;
 
 
 import java.io.File;
@@ -71,6 +71,7 @@ public class CargaOntologia {
             //Nuevo concepto creado
             
             //Se guarda el valor en el indice
+           // System.out.println(nuevo.getNombre());
             List<Concepto> index=indexOnto[nuevo.getNombre().charAt(0)-97];
             index.add(nuevo);
              

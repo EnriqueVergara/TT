@@ -1,4 +1,7 @@
-package analizador;
+package com.TT.controller;
+
+import com.TT.model.Relacion;
+import com.TT.model.Concepto;
 
 public class Desambiguador {
     public String desambiguaTripleta(Concepto agente,Concepto pasivo,Relacion rel){

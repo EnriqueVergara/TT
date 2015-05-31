@@ -1,11 +1,11 @@
-package analizador;
+package com.TT.controller;
 
 
-import analizador.BuscadorConceptos;
-import analizador.CargaOntologia;
-import analizador.Concepto;
-import analizador.Desambiguador;
-import analizador.Relacion;
+import com.TT.model.BuscadorConceptos;
+import com.TT.model.CargaOntologia;
+import com.TT.model.Concepto;
+import com.TT.controller.Desambiguador;
+import com.TT.model.Relacion;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package analizador;
+package com.TT.controller;
 
 import edu.upc.freeling.ChartParser;
 import edu.upc.freeling.DepTxala;

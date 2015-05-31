@@ -1,8 +1,24 @@
 <concept nombre="entidad">
-    <concept nombre="enridad abstracata">
-        <concept nombre="tema">
-            <concetp nombre="matematicas">
-            </concetp>
+    <concept nombre="entidad abstracta">
+        <concept nombre="capacidad psicologica">
+            <concept nombre="conocimiento">
+                <concept nombre="contenido cognitivo">
+                    <concept nombre="dominio del lenguaje">
+                        <concept nombre="area del conocimiento">
+                            <concept nombre="ciencia">
+                                <concept nombre="matematicas">
+                                </concept>
+                            </concept>
+                            <concept nombre="ciencias naturales">
+                                <concept nombre="biología">
+                                </concept>
+                                <concept nombre="química">
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+            </concept>
         </concept>
     </concept>
     <concept nombre="entidad fisica">
@@ -10,18 +26,42 @@
         <word>Entidad fisica</word>
 
         <concept nombre="objeto físico">
-            <concept nombre="transporte">
-                <concept nombre="avion">
-                </concept>
-                <concept nombre="autobus">
-                </concept>
-                <concept nombre="tren">
-                </concept>
-                <concept nombre="automovil">
-                </concept>
-            </concept>
             <concept nombre="mesa"></concept>
             <concept nombre="artefacto">
+                <concept nombre="instrumentalidad">
+                    <concept nombre="transporte">
+                        <concept nombre="vehículo">
+                            <concept nombre="navegador">
+                                <concept nombre="aéreo">
+                                    <concept nombre="avión">
+                                    </concept>
+                                </concept>
+                                <concept nombre="maritimo">
+                                    <concept nombre="barco">
+                                    </concept>
+                                </concept>
+                            </concept>
+                        </concept>
+                        <concept nombre="transporte público">
+                            <concept nombre="autobús">
+                            </concept>
+                            <concept nombre="tren">
+                            </concept>
+                            <concept nombre="metro">
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+                <concept nombre="creación">
+                    <concept nombre="producto">
+                        <concept nombre="trabajo">
+                            <concept nombre="publicación">
+                                <concept nombre="libro">
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
                 <concept nombre="herramienta">
                     <concept nombre="herramienta de jardín">
                         <concept nombre="podadora">
@@ -34,6 +74,14 @@
 
         <concept nombre="materia">
             <concept nombre="sustancia">
+                <concept nombre="alimento">
+                    <concept nombre="bebida">
+                        <concept nombre="café">
+                        </concept>
+                        <concept nombre="leche">
+                        </concept>
+                    </concept>
+                </concept>
                 <concept nombre="combustible">
                     <concept nombre="gasolina">
                     </concept>
@@ -42,23 +90,6 @@
                     <concept nombre="gas natural">
                     </concept>
                 </concept>
-            </concept>
-        </concept>
-
-        <concept nombre="liquido">        
-            <languaje>Spanish</languaje>
-            <word>bebida</word> 
-            <concept nombre="bebida">
-            <languaje>Spanish</languaje>
-            <word>bebida</word>        
-                <concept nombre="café">
-                    <languaje>Spanish</languaje>
-                    <word>café</word>
-                </concept>    
-                <concept nombre="leche">
-                    <languaje>Spanish</languaje>
-                    <word>leche</word>
-                </concept> 
             </concept>
         </concept>
 
@@ -229,7 +260,6 @@
         <concept nombre="material">
             <languaje>Spanish</languaje>
             <word>material</word>
-
             <concept nombre="barro">
                 <languaje>Spanish</languaje>
                 <word>barro</word>
@@ -253,6 +283,10 @@
             <concept nombre="maria"></concept>
             <concept nombre="joel"></concept>
             <concept nombre="omar"></concept>
+            <concept nombre="olga"></concept>
+            <concept nombre="alma"></concept>
+            <concept nombre="ruben"></concept>
+            <concept nombre="consuelo"></concept>
         </concept>
 
     </concept>

@@ -1,4 +1,4 @@
-package analizador;
+package com.TT.model;
 
 public class Concepto {
     private String nombre;

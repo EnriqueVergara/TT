@@ -1,4 +1,4 @@
-package analizador;
+package com.TT.model;
 
 
 import java.util.List;

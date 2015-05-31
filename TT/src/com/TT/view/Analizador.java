@@ -1,5 +1,10 @@
-package analizador;
+package com.TT.view;
 
+import com.TT.controller.Analizar;
+import com.TT.controller.Freeling;
+import com.TT.model.Relacion;
+import com.TT.model.CargaOntologia;
+import com.TT.model.Concepto;
 import com.arbol.HiloProgressBar;
 import java.util.ArrayList;
 import java.util.List;

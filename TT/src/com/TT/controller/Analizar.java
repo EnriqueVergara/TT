@@ -1,25 +1,26 @@
-package analizador;
+package com.TT.controller;
 
+import com.TT.view.Analizador;
+import com.TT.model.BuscadorConceptos;
+import com.TT.model.Relacion;
+import com.TT.model.CargaOntologia;
+import com.TT.model.Concepto;
 import com.arbol.Graficador;
-import edu.upc.freeling.Analysis;
 import edu.upc.freeling.Depnode;
 import edu.upc.freeling.ListSentence;
 import edu.upc.freeling.ListSentenceIterator;
 import edu.upc.freeling.ListWord;
-import edu.upc.freeling.ListWordIterator;
 import edu.upc.freeling.PreorderIteratorDepnode;
 import edu.upc.freeling.Sentence;
 import edu.upc.freeling.TreeDepnode;
-import edu.upc.freeling.VectorWord;
 import edu.upc.freeling.Word;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Analizar implements Runnable {
-    private List<Concepto>[] indexOnto = new ArrayList[24];
-    private List<Relacion> indexRel = new ArrayList<>();
+    
+    private DesambiguadorPrep desambiguador;
+    private ResolvedorConj resolvedor=new ResolvedorConj();
     private final Freeling analizador; 
     public static boolean termino = false;
     String line;
@@ -40,88 +41,34 @@ public class Analizar implements Runnable {
     }
     
     public Analizar(String line,Freeling analizador,List<Concepto>[] indexOnto,List<Relacion> indexRel) { 
-       this.indexOnto=indexOnto;
-       this.indexRel=indexRel; 
-       this.analizador=analizador;
-       this.line = line;
+        desambiguador=new DesambiguadorPrep(indexOnto, indexRel);
+        this.analizador=analizador;
+        this.line = line;
     }
-
-public String analizarOracion() { //Inicia el proceso de analisis de una oracion, devuelve la oracion con informacion adicional        
+    
+    
+    
+    public String analizarOracion() { //Inicia el proceso de analisis de una oracion, devuelve la oracion con informacion adicional        
         ListWord l = analizador.tk.tokenize(line);
-        ListSentence listAux=new ListSentence();
-        ListSentence ls = analizador.sp.split(l, false);    //Lista de oraciones analizadas por freeling
-        analizador.mf.analyze(ls);  /*   Llama al etiquetador de Freeling   */
-        String desambiguado="";
-                   
-        Relacion rel=new Relacion();
-        Concepto agente=new Concepto();
-        Concepto pasivo=new Concepto();
-        Analysis analisis;
-        Word wordAux=new Word();    
-        Sentence sentAux=new Sentence();
-         ListSentenceIterator sIt = new ListSentenceIterator(ls); 
-         while(sIt.hasNext()){
-            Sentence sent=sIt.next();
-            VectorWord vec=sent.getWords();            
-            sentAux=new Sentence();
-            for(int i=0;i<vec.size();i++){
-                if(vec.get(i).getTag().startsWith("SP")){
-                    analisis=new Analysis(); 
-                    wordAux=new Word();
-                    analisis.setTag("SPS00");
-                    // analisis.setTag(vec.get(i).getTag() 
-                    rel=busca.buscarEnIndiceRel(indexRel, vec.get(i).getLemma());  
-                    for(int cont=0;cont<rel.getHijos().size();cont++){
-                        agente=busca.buscarEnIndice(indexOnto, buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
-                        pasivo=busca.buscarEnIndice(indexOnto, buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
-                        //System.out.println(rel.getHijos().get(cont).getNombre()+"  "+rel.getHijos().get(cont).getTipoAgente()+"  "+pasivo.getNombre());
-                        if(des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
-                            desambiguado=rel.getHijos().get(cont).getNombre();    
-                            cont=rel.getHijos().size();
-                        }
-                    } 
-                    
-                    analisis.setLemma(desambiguado);
-                    wordAux.setAnalysis(analisis);
-                    //wordAux.setForm(vec.get(i).getForm()); 
-                    wordAux.setForm(desambiguado);
-                    sentAux.pushBack(wordAux);
-                }
-                else{           
-                    sentAux.pushBack(vec.get(i));
-                }
-            }
-            listAux.pushBack(sentAux);
-        }
+        ListSentence ls = analizador.sp.split(l, false);    /*  Lista de oraciones analizadas por freeling  */
+        analizador.mf.analyze(ls);                          /*  Llama al etiquetador de Freeling    */ 
+        analizador.tg.analyze(ls);
         
-       
-        ListSentenceIterator sIta = new ListSentenceIterator(listAux); //Iterador de oraciones
-        List<String> result = new ArrayList(); //Cada oración con informacion semantica adicional se guarda en un arreglo
-        while (sIta.hasNext()) {
-            Sentence s = sIta.next();
-            //Iterador de palabras
-            ListWordIterator wIt = new ListWordIterator(s);
-            List<Word> palabras = new ArrayList();
-            while (wIt.hasNext()) {
-                Word w = wIt.next();
-                //System.out.println(w.getForm());
-            }
-        }
-         
-        analizador.tg.analyze(listAux);
+        /*  Modulos desarrollados para el TT    */
         
-        // Perform named entity (NE) classificiation.
-        // Chunk parser
-        analizador.parser.analyze(listAux);
+        ls=desambiguador.desambiguarPreposiciones(ls);                    /*  Desambigua preposiciones    */
         
-        // Dependency parser
-        analizador.dep.analyze(listAux);
+        ls=resolvedor.resuelveConjunciones(ls);                        /*  Resolvedor de conjunciones  */
+        
+        
+        analizador.parser.analyze(ls);
+        analizador.dep.analyze(ls);                         /*  Analisis de dependencias    */
         
         Analizador.labelEstado.setText("Análisis de Dependencias: Completado");
         
         System.out.println("-------- DEPENDENCY PARSER results -----------");
 
-        ListSentenceIterator sIte = new ListSentenceIterator(listAux);
+        ListSentenceIterator sIte = new ListSentenceIterator(ls);
         while (sIte.hasNext()) {
             String nuevaOracion = "NuevaOracion";
             relacionArbol.add(nuevaOracion);
@@ -130,32 +77,13 @@ public String analizarOracion() { //Inicia el proceso de analisis de una oracion
             printDepTree(0, tree);
         }
         
+        
         /*
         *Se llama a la clase encargada de crear la gráfica del árbol
         */
         Analizador.labelEstado.setText("Dibujando árbol de dependencias...");
         Graficador graficador = new Graficador(relacionArbol);
         graficador.crearGraficaArbol();
-        return null;
-    }
-
-    private String buscaPrevio(VectorWord vec, int index,String tipo) {
-        int i;
-        for (i = index; i >= 0; i--) {
-            if (vec.get(i).getTag().startsWith(tipo)) {
-                return vec.get(i).getLemma();
-            }
-        }
-        return "";
-    }
-
-    private String buscaPosterior(VectorWord vec, int index,String tipo) {
-        int i;
-        for (i = index; i < vec.size(); i++) {
-            if (vec.get(i).getTag().startsWith(tipo)) {
-                return vec.get(i).getLemma();
-            }
-        }
         return null;
     }
 
