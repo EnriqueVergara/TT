@@ -1,10 +1,9 @@
 package com.TT.controller;
 
-
-import com.TT.model.BuscadorConceptos;
 import com.TT.model.CargaOntologia;
 import com.TT.model.Concepto;
 import com.TT.controller.Desambiguador;
+import com.TT.model.Ontologia;
 import com.TT.model.Relacion;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,16 +24,13 @@ public class PruebaDesambiguador extends javax.swing.JFrame {
     public static Concepto onto;    
     private static List<Concepto>[] indexOnto=new ArrayList[24];
     private static List<Relacion> indexRel=new ArrayList<Relacion>();
-    private static CargaOntologia load=new CargaOntologia(); 
-    private static BuscadorConceptos busca=new BuscadorConceptos();
+    private static Ontologia ontologia;
     private static Desambiguador des=new Desambiguador();
     /**
      * Creates new form PruebaDesambiguador
      */
     public PruebaDesambiguador() {
-                load.cargaOntologia();
-        indexOnto=load.getIndexOnto();
-        indexRel=load.getIndexRel();
+        ontologia=new CargaOntologia("prueba.xml","relacion.xml").getOntologia();
         initComponents();
     }
 
@@ -102,9 +98,9 @@ public class PruebaDesambiguador extends javax.swing.JFrame {
                 
                 
         String desambiguado=des.desambiguaTripleta(
-                                                    busca.buscarEnIndice(indexOnto, palabra1.getText()), 
-                                                    busca.buscarEnIndice(indexOnto, palabra2.getText()), 
-                                                    busca.buscarEnIndiceRel(indexRel, prep.getText()));
+                                                    ontologia.buscarEnIndice(palabra1.getText()), 
+                                                    ontologia.buscarEnIndice(palabra2.getText()), 
+                                                    ontologia.buscarEnIndiceRel(prep.getText()));
         res.setText(desambiguado);
         
     }//GEN-LAST:event_jButton1ActionPerformed

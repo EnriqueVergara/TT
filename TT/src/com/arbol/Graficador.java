@@ -8,6 +8,7 @@ package com.arbol;
 import com.TT.view.Analizador;
 import static com.TT.view.Analizador.oraciones;
 import static com.TT.view.Analizador.panelImagenes;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.io.File;
@@ -28,14 +29,14 @@ import javax.swing.JOptionPane;
  * @author bruno
  */
 public class Graficador {
-    String path = "/home/bruno/NetBeansProjects/TT/TT/src/com/arbol";
+    String path = "/home/enrique/NetBeansProjects/TT/TT/src/com/arbol";
     List<String> relacionArbol;
     
     public Graficador(List<String> relacionArbol) {
         this.relacionArbol = relacionArbol;
     }
     
-    public void crearGraficaArbol() {
+    public List<JLabel> crearGraficaArbol() {
         int oraciones = 0, borrar = 0;
         
         //Recorre el arreglo para saber cuantas oraciones vienen
@@ -96,10 +97,10 @@ public class Graficador {
         }
         
         Analizador.oraciones = oraciones;
-        compilarGrafo(oraciones);
+        return compilarGrafo(oraciones);
     }
     
-    public void compilarGrafo(int oraciones) {
+    public List<JLabel> compilarGrafo(int oraciones) {
         for(int i = 0; i < oraciones; i++) {
             try {
                 String cmd = "dot -Tjpg " + path + "/Arbol" + i +".txt -o " + path + "/outfile" + i + ".jpg";
@@ -113,21 +114,20 @@ public class Graficador {
             } 
         }
         
-        panelImagenes.removeAll();
-        panelImagenes.setLayout(new java.awt.GridLayout(0, oraciones));
-        
+     //   panelImagenes.removeAll();
+       // panelImagenes.setLayout(new java.awt.GridLayout(0, oraciones));
+        List<JLabel> imagenes=new ArrayList();
         for(int i = 0; i < oraciones; i++) {
             JLabel etiqueta = new JLabel();
-            
             String imgPath = path + "/outfile" + i + ".jpg";
             ImageIcon ic = new ImageIcon(imgPath);
-            Icon icon = new ImageIcon(ic.getImage().getScaledInstance(1,
-                        1, Image.SCALE_DEFAULT));
+            Icon icon = new ImageIcon(ic.getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
             etiqueta.setIcon(ic);
-
-            Analizador.panelImagenes.add(etiqueta);
-            etiqueta.setVisible(true);
-            Analizador.panelImagenes.updateUI();
+            imagenes.add(etiqueta);
+          //  Analizador.panelImagenes.add(etiqueta);
+           // etiqueta.setVisible(true);
+            //Analizador.panelImagenes.updateUI();
         }
+        return imagenes;
     }
 }

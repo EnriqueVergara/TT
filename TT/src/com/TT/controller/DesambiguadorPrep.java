@@ -1,7 +1,7 @@
 package com.TT.controller;
 
-import com.TT.model.BuscadorConceptos;
 import com.TT.model.Concepto;
+import com.TT.model.Ontologia;
 import com.TT.model.Relacion;
 import edu.upc.freeling.Analysis;
 import edu.upc.freeling.ListSentence;
@@ -14,15 +14,14 @@ import java.util.List;
 
 public class DesambiguadorPrep {
         
-    private BuscadorConceptos busca = new BuscadorConceptos();
     private Desambiguador des = new Desambiguador();
     private List<Concepto>[] indexOnto = new ArrayList[24];
     private List<Relacion> indexRel = new ArrayList<>();
     public static boolean termino = false;
+    private Ontologia ontologia;
         
-    public DesambiguadorPrep(List<Concepto>[] indexOnto,List<Relacion> indexRel) { 
-       this.indexOnto=indexOnto;
-       this.indexRel=indexRel; 
+    public DesambiguadorPrep(Ontologia ontologia) { 
+      this.ontologia=ontologia;
     }
      
     private String buscaPrevio(VectorWord vec, int index,String tipo) {
@@ -67,10 +66,10 @@ public class DesambiguadorPrep {
                     analisis=new Analysis(); 
                     wordAux=new Word();
                     analisis.setTag("SPS00"); 
-                    rel=busca.buscarEnIndiceRel(indexRel, vec.get(i).getLemma());  
+                    rel=ontologia.buscarEnIndiceRel(vec.get(i).getLemma());  
                     for(int cont=0;cont<rel.getHijos().size();cont++){
-                        agente=busca.buscarEnIndice(indexOnto, buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
-                        pasivo=busca.buscarEnIndice(indexOnto, buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
+                        agente=ontologia.buscarEnIndice(buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
+                        pasivo=ontologia.buscarEnIndice(buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
                         //System.out.println(rel.getHijos().get(cont).getNombre()+"  "+rel.getHijos().get(cont).getTipoAgente()+"  "+pasivo.getNombre());
                         if(des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
                             desambiguado=rel.getHijos().get(cont).getNombre();    

@@ -1,10 +1,10 @@
 package com.TT.controller;
 
 import com.TT.view.Analizador;
-import com.TT.model.BuscadorConceptos;
 import com.TT.model.Relacion;
 import com.TT.model.CargaOntologia;
 import com.TT.model.Concepto;
+import com.TT.model.Ontologia;
 import com.arbol.Graficador;
 import edu.upc.freeling.Depnode;
 import edu.upc.freeling.ListSentence;
@@ -16,39 +16,67 @@ import edu.upc.freeling.TreeDepnode;
 import edu.upc.freeling.Word;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import javax.swing.JLabel;
 
-public class Analizar implements Runnable {
+public class Analizar {
     
     private DesambiguadorPrep desambiguador;
     private ResolvedorConj resolvedor=new ResolvedorConj();
-    private final Freeling analizador; 
+    public Freeling analizador; 
+    public Ontologia ontologia;
     public static boolean termino = false;
-    String line;
-    
-    @Override
-    public void run() {
-        termino = false;
-//        Analizador.progressBar.setIndeterminate(true);
-        String oracion = analizarOracion();
-        Analizador.tagged.setText(oracion);
-        try {
-            Thread.sleep( 1000 );
-        } catch (InterruptedException e){
-            System.err.println( e.getMessage() );
-        }
-        termino = true;
-        Thread.interrupted();
+    private String oracion;
+    public void setOracion(String oracion){
+        this.oracion=oracion;
+        System.out.println("setOracion");
     }
     
-    public Analizar(String line,Freeling analizador,List<Concepto>[] indexOnto,List<Relacion> indexRel) { 
-        desambiguador=new DesambiguadorPrep(indexOnto, indexRel);
+   // @Override
+//    public String call() {
+//        termino = false;
+//        String re=analizarOracion(oracion);
+//       // Analizador.tagged.setText(oracion);
+//        try {
+//            Thread.sleep( 1000 );
+//        } catch (InterruptedException e){
+//            System.err.println( e.getMessage() );
+//        }
+//        termino = true;
+//        Thread.interrupted();
+//        return "Hola";
+//    }
+    
+    public Analizar(Freeling analizador,Ontologia ontologia) { 
+        this.ontologia=ontologia;
+        desambiguador=new DesambiguadorPrep(ontologia);
         this.analizador=analizador;
-        this.line = line;
     }
     
+    public List<JLabel> generarArbolGrafico(){
+                
+        System.out.println("-------- DEPENDENCY PARSER results -----------");
+
+        ListSentenceIterator sIte = new ListSentenceIterator(analizarOracion(oracion));
+        while (sIte.hasNext()) {
+            String nuevaOracion = "NuevaOracion";
+            relacionArbol.add(nuevaOracion);
+            Sentence s = sIte.next();
+            TreeDepnode tree = s.getDepTree();
+            printDepTree(0, tree);
+        }
+        /*
+        *Se llama a la clase encargada de crear la gráfica del árbol
+        */
+        Analizador.labelEstado.setText("Dibujando árbol de dependencias...");
+        Graficador graficador = new Graficador(relacionArbol);
+        return graficador.crearGraficaArbol();
+        //return null;
+       // return new JLabel();
+        
+    }
     
-    
-    public String analizarOracion() { //Inicia el proceso de analisis de una oracion, devuelve la oracion con informacion adicional        
+    private ListSentence analizarOracion(String line) { //Inicia el proceso de analisis de una oracion, devuelve la oracion con informacion adicional        
         ListWord l = analizador.tk.tokenize(line);
         ListSentence ls = analizador.sp.split(l, false);    /*  Lista de oraciones analizadas por freeling  */
         analizador.mf.analyze(ls);                          /*  Llama al etiquetador de Freeling    */ 
@@ -64,27 +92,7 @@ public class Analizar implements Runnable {
         analizador.parser.analyze(ls);
         analizador.dep.analyze(ls);                         /*  Analisis de dependencias    */
         
-        Analizador.labelEstado.setText("Análisis de Dependencias: Completado");
-        
-        System.out.println("-------- DEPENDENCY PARSER results -----------");
-
-        ListSentenceIterator sIte = new ListSentenceIterator(ls);
-        while (sIte.hasNext()) {
-            String nuevaOracion = "NuevaOracion";
-            relacionArbol.add(nuevaOracion);
-            Sentence s = sIte.next();
-            TreeDepnode tree = s.getDepTree();
-            printDepTree(0, tree);
-        }
-        
-        
-        /*
-        *Se llama a la clase encargada de crear la gráfica del árbol
-        */
-        Analizador.labelEstado.setText("Dibujando árbol de dependencias...");
-        Graficador graficador = new Graficador(relacionArbol);
-        graficador.crearGraficaArbol();
-        return null;
+        return ls;
     }
 
     private static void printDepTree(int depth, TreeDepnode tr) {
@@ -179,8 +187,7 @@ public class Analizar implements Runnable {
     }
 
     public static Concepto onto;
-    private CargaOntologia load = new CargaOntologia();
-    private BuscadorConceptos busca = new BuscadorConceptos();
+   // private BuscadorConceptos busca = new BuscadorConceptos();
     private static List<String> relacionArbol = new ArrayList<>();
     private Desambiguador des = new Desambiguador();
 }

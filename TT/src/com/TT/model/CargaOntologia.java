@@ -8,15 +8,22 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
-public class CargaOntologia {
-    private String ontoPath="prueba.xml";
-    private String relPath="relacion.xml";
-    private static List<Concepto>[] indexOnto=new ArrayList[24];
-    private List<Relacion> indexRel=new ArrayList();
-    BuscadorConceptos buscar=new BuscadorConceptos();
+public class CargaOntologia {   /*  Clase encargada de leer los archivos xml que contienen la ontologia */
+    private String ontoPath;    /*  Guarda la ruta del archivo XML de la ontología  */
+    private String relPath;     /*  Guarda la ruta del archivo XML de las relaciones    */
+    private static List<Concepto>[] indexOntoAux=new ArrayList[24];
+    private List<Relacion> indexRelAux=new ArrayList();
     private Concepto raiz=new Concepto();
     private Relacion raizRel=new Relacion();
- //   Relacion con=new Relacion();
+    private Ontologia ontologia;
+    
+    public CargaOntologia(String ontoPath,String relPath){
+        this.ontoPath=ontoPath;
+        this.relPath=relPath;
+        ontologia=new Ontologia(initIndex(), new ArrayList());
+        this.cargaOntologia();
+    }
+
     public void cargaOntologia(){
         SAXBuilder saxB=new SAXBuilder();
         raiz.setNombre("Root");  
@@ -24,9 +31,11 @@ public class CargaOntologia {
         try{
             Document document=(Document)saxB.build(new File(ontoPath));
             recorreXML(document.getRootElement(),raiz);
+            ontologia.setIndexOnto(indexOntoAux);
             //Cargamos las relaciones
             document=(Document)saxB.build(new File(relPath));
             raizRel=cargaRelaciones(document.getRootElement());
+            ontologia.setIndexRel(indexRelAux);
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -43,8 +52,8 @@ public class CargaOntologia {
         try{
             nuevo.setNombre(raiz.getAttributeValue("nombre"));
             //System.out.println(nuevo.getNombre());
-            nuevo.setAgente(buscar.buscarEnIndice(indexOnto, raiz.getChild("agente").getValue()));
-            nuevo.setPasivo(buscar.buscarEnIndice(indexOnto, raiz.getChild("pasivo").getValue()));
+            nuevo.setAgente(ontologia.buscarEnIndice(raiz.getChild("agente").getValue()));
+            nuevo.setPasivo(ontologia.buscarEnIndice(raiz.getChild("pasivo").getValue()));
             try{
                 nuevo.setTipoAgente(raiz.getChild("tipoAgente").getValue());
                 nuevo.setTipoPasivo(raiz.getChild("tipoPasivo").getValue());
@@ -56,7 +65,7 @@ public class CargaOntologia {
             }
         }catch(Exception ex){
             //ex.printStackTrace();
-            indexRel.add(nuevo);
+            indexRelAux.add(nuevo);
         }
         return nuevo;
     }
@@ -64,42 +73,30 @@ public class CargaOntologia {
         Concepto nuevo=new Concepto(); //Nuevo objeto de tipo Concepto    
         try{
             nuevo.setNombre(raiz.getAttributeValue("nombre"));
-//            nuevo.setLenguaje(raiz.getChild("languaje").getValue());
-  //          nuevo.setWord(raiz.getChild("word").getValue());
             nuevo.setPadre(padre);
-           // System.out.println(nuevo.getNombre());
             //Nuevo concepto creado
-            
             //Se guarda el valor en el indice
-           // System.out.println(nuevo.getNombre());
-            List<Concepto> index=indexOnto[nuevo.getNombre().charAt(0)-97];
+            List<Concepto> index=indexOntoAux[nuevo.getNombre().charAt(0)-97];
             index.add(nuevo);
-             
-            indexOnto[nuevo.getNombre().charAt(0)-97]=index;
-          //  System.out.println(indexOnto[nuevo.getNombre().charAt(0)-97].get(0).getNombre());
-       
+            indexOntoAux[nuevo.getNombre().charAt(0)-97]=index;
+          //  System.out.println(indexOntoAux[nuevo.getNombre().charAt(0)-97].get(0).getNombre());
         }catch(Exception a){
-            a.printStackTrace();
         }
-         
         List<Element> hijos=raiz.getChildren("concept"); //Los hijos son aquellos con la etiqueta concept
-     
-        for(int i=0;i<hijos.size();i++){ //Recorremos todos los hijos
-            recorreXML(hijos.get(i), nuevo);
+        for (Element hijo : hijos) {
+            //Recorremos todos los hijos
+            recorreXML(hijo, nuevo);
         }
     }
         
-    private void initIndex(){
-        int i=0;
-        for(i=0;i<24;i++){
-            indexOnto[i]=new ArrayList<>();
+    private List<Concepto>[] initIndex(){
+        for(int i=0;i<24;i++){
+            indexOntoAux[i]=new ArrayList<>();
         } 
+        return indexOntoAux;
     }
-    public static List<Concepto>[] getIndexOnto() {
-        return indexOnto;
+    
+    public Ontologia getOntologia(){
+        return ontologia;
     }
-    public List<Relacion> getIndexRel() {
-        return indexRel;
-    }
-
 }
