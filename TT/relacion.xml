@@ -2,75 +2,96 @@
 <!DOCTYPE root SYSTEM "DTDRelacion.dtd">
 <root>
 	<concept nombre="relacion">
-	    <concept nombre="a">
-		   <concept nombre="rumbo-a">
-		       <agente>desplazar</agente>
-		       <tipoAgente>V</tipoAgente>
-		       <pasivo>territorio</pasivo>
-		       <tipoPasivo>N</tipoPasivo>
-		   </concept>
-		   
-		   <concept nombre="que-funciona-con">            
-		       <agente>artefacto</agente>
-		       <tipoAgente>N</tipoAgente>
-		       <pasivo>combustible</pasivo>
-		       <tipoPasivo>N</tipoPasivo>
-		   </concept>
-		   
-	    </concept>
-	    
-	    <concept nombre="con">
-		   <concept nombre="del-modo-con">
-		       <agente>alimento</agente>
-		       <pasivo>modo</pasivo>
-		   </concept>
-		   <concept nombre="que-tiene">
-		       <agente>bebida</agente>
-		       <tipoAgente>N</tipoAgente> <!--Indica que componente lexico sera el agente -->
-		       <pasivo>bebida</pasivo>
-		       <tipoPasivo>N</tipoPasivo>
-		   </concept>
-		   <concept nombre="en-compañia-de">     
-		       <agente>bebida</agente>
-		       <pasivo>persona</pasivo>
-		   </concept>            
-		   <concept nombre="con-contenido">    
-		       <agente>contenedor</agente>    
-		       <pasivo>bebida</pasivo>
-		   </concept>    
-		   <concept nombre="con-el-proposito">
-		       <agente>accion</agente>
-		       <tipoAgente>V</tipoAgente>
-		       <pasivo></pasivo>
-		       <tipoPasivo>N</tipoPasivo>
-		   </concept>
-	    </concept>    
-	    
-	    <concept nombre="de">
-		   <concept nombre="hecho-de">
-		       <agente>entidad fisica</agente>
-		       <pasivo>material</pasivo>
-		   </concept>  
-		           
-		   <concept nombre="que-contiene">
-		       <agente>contenedor</agente>
-		       <pasivo>alimento</pasivo>
-		   </concept> 
-		   
-		   <concept nombre="propiedad-de">
-		       <agente>objeto físico</agente>
-		       <tipoAgente>N</tipoAgente>
-		       <pasivo>nombre_propio</pasivo>
-		       <tipoPasivo>NP</tipoPasivo>
-		   </concept>
-	    </concept>
-	    <concept nombre="para">
-		   <concept nombre="con-rumbo-a">
-		       <agente>transporte</agente>
-		       <tipoAgente>N</tipoAgente>
-		       <pasivo>territorio</pasivo>
-		       <tipoPasivo>N</tipoPasivo>
-		   </concept>
-	    </concept>
-	</concept>
+    <concept nombre="a">
+        <concept nombre="rumbo-a">
+            <agente>desplazar</agente>
+            <tipoAgente>V</tipoAgente>
+            <pasivo>ubicación</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+        
+        <concept nombre="que-funciona-con">            
+            <agente>artefacto</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>combustible</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+        
+        <concept nombre="parecido-a">
+            <agente>experiencia sensorial</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>sustancia</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+        
+    </concept>
+    <concept nombre="bajo">
+        <concept nombre="por-debajo-de">
+            <agente>objeto físico</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>entidad física</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+        <concept nombre="dirigidos-por">
+            <agente>persona</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>solicitar</pasivo>
+            <tipoPasivo>V</tipoPasivo>
+        </concept>
+    </concept>
+    <concept nombre="con">
+        <concept nombre="del-modo-con">
+            <agente>alimento</agente>
+            <pasivo>emoción</pasivo>
+        </concept>
+        <concept nombre="que-tiene">
+            <agente>bebida</agente>
+            <tipoAgente>N</tipoAgente> <!--Indica que componente lexico sera el agente -->
+            <pasivo>bebida</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+        <concept nombre="en-compañia-de">     
+            <agente>bebida</agente>
+            <pasivo>persona</pasivo>
+        </concept>            
+        <concept nombre="con-contenido">    
+            <agente>contenedor</agente>    
+            <pasivo>bebida</pasivo>
+        </concept>    
+        <concept nombre="con-el-proposito">
+            <agente>accion</agente>
+            <tipoAgente>V</tipoAgente>
+            <pasivo></pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+    </concept>    
+    
+    <concept nombre="de">
+        <concept nombre="hecho-de">
+            <agente>entidad fisica</agente>
+            <pasivo>material</pasivo>
+        </concept>  
+                
+        <concept nombre="que-contiene">
+            <agente>contenedor</agente>
+            <pasivo>alimento</pasivo>
+        </concept> 
+        
+        <concept nombre="propiedad-de">
+            <agente>objeto físico</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>nombre_propio</pasivo>
+            <tipoPasivo>NP</tipoPasivo>
+        </concept>
+    </concept>
+    <concept nombre="para">
+        <concept nombre="con-rumbo-a">
+            <agente>transporte</agente>
+            <tipoAgente>N</tipoAgente>
+            <pasivo>territorio</pasivo>
+            <tipoPasivo>N</tipoPasivo>
+        </concept>
+    </concept>
+</concept>
+	
 </root>
