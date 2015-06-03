@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT root (concept+)>
+<!ELEMENT concept (languaje?, word?, concept*)>
+<!ATTLIST concept nombre CDATA #REQUIRED>
+<!ELEMENT languaje (#PCDATA)>
+<!ELEMENT word (#PCDATA)>

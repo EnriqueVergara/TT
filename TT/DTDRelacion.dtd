@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT root (concept+)>
+<!ELEMENT concept (concept*, agente?, tipoAgente?, pasivo?, tipoPasivo?)>
+<!ATTLIST concept nombre CDATA #REQUIRED>
+<!ELEMENT agente (#PCDATA)>
+<!ELEMENT tipoAgente (#PCDATA)>
+<!ELEMENT pasivo (#PCDATA)>
+<!ELEMENT tipoPasivo (#PCDATA)>

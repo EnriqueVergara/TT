@@ -1,8 +1,7 @@
 package com.TT.controller;
 
 import com.TT.view.Analizador;
-import com.TT.model.Relacion;
-import com.TT.model.CargaOntologia;
+
 import com.TT.model.Concepto;
 import com.TT.model.Ontologia;
 import com.arbol.Graficador;
@@ -16,7 +15,6 @@ import edu.upc.freeling.TreeDepnode;
 import edu.upc.freeling.Word;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import javax.swing.JLabel;
 
 public class Analizar {

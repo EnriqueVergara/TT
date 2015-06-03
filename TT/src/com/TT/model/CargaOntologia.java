@@ -2,11 +2,15 @@ package com.TT.model;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.input.sax.XMLReaders;
 
 public class CargaOntologia {   /*  Clase encargada de leer los archivos xml que contienen la ontologia */
     private String ontoPath;    /*  Guarda la ruta del archivo XML de la ontología  */
@@ -25,7 +29,7 @@ public class CargaOntologia {   /*  Clase encargada de leer los archivos xml que
     }
 
     public void cargaOntologia(){
-        SAXBuilder saxB=new SAXBuilder();
+        SAXBuilder saxB = new SAXBuilder(XMLReaders.DTDVALIDATING);
         raiz.setNombre("Root");  
         initIndex();
         try{
@@ -36,8 +40,9 @@ public class CargaOntologia {   /*  Clase encargada de leer los archivos xml que
             document=(Document)saxB.build(new File(relPath));
             raizRel=cargaRelaciones(document.getRootElement());
             ontologia.setIndexRel(indexRelAux);
-        }catch(Exception ex){
-            ex.printStackTrace();
+        }catch(JDOMException | IOException ex){
+            System.err.print(ex.getMessage());
+            System.exit(0);
         }
     }
     
