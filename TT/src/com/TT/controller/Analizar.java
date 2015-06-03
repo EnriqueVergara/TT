@@ -27,7 +27,6 @@ public class Analizar {
     private String oracion;
     public void setOracion(String oracion){
         this.oracion=oracion;
-        System.out.println("setOracion");
     }
     
    // @Override
@@ -55,7 +54,7 @@ public class Analizar {
                 
         System.out.println("-------- DEPENDENCY PARSER results -----------");
 
-        ListSentenceIterator sIte = new ListSentenceIterator(analizarOracion(oracion));
+        ListSentenceIterator sIte = new ListSentenceIterator(analizarOracion(oracion));     
         while (sIte.hasNext()) {
             String nuevaOracion = "NuevaOracion";
             relacionArbol.add(nuevaOracion);
@@ -65,6 +64,7 @@ public class Analizar {
         }
         /*
         *Se llama a la clase encargada de crear la gráfica del árbol
+            CU-5: Generar árbol de dependencias.
         */
         Analizador.labelEstado.setText("Dibujando árbol de dependencias...");
         Graficador graficador = new Graficador(relacionArbol);
@@ -77,14 +77,15 @@ public class Analizar {
     private ListSentence analizarOracion(String line) { //Inicia el proceso de analisis de una oracion, devuelve la oracion con informacion adicional        
         ListWord l = analizador.tk.tokenize(line);
         ListSentence ls = analizador.sp.split(l, false);    /*  Lista de oraciones analizadas por freeling  */
+        
         analizador.mf.analyze(ls);                          /*  Llama al etiquetador de Freeling    */ 
-        analizador.tg.analyze(ls);
+        analizador.tg.analyze(ls);                          /* CU-2: Etiquetar Oración
         
         /*  Modulos desarrollados para el TT    */
         
-        ls=desambiguador.desambiguarPreposiciones(ls);                    /*  Desambigua preposiciones    */
+        ls=desambiguador.desambiguarPreposiciones(ls);                    /*  Desambigua preposiciones   CU-3: Desambiguar Preposiciones  */
         
-        ls=resolvedor.resuelveConjunciones(ls);                        /*  Resolvedor de conjunciones  */
+        ls=resolvedor.resuelveConjunciones(ls);                        /*  Resolvedor de conjunciones  CU-4: Resolver conjunciones  */
         
         
         analizador.parser.analyze(ls);
