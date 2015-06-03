@@ -1,297 +1,371 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE root SYSTEM "DTDOntologia.dtd">
 <root>
-	<concept nombre="entidad">
-	    <concept nombre="entidad abstracta">
-		   <concept nombre="capacidad psicologica">
-		       <concept nombre="conocimiento">
-		           <concept nombre="contenido cognitivo">
-		               <concept nombre="dominio del lenguaje">
-		                   <concept nombre="area del conocimiento">
-		                       <concept nombre="ciencia">
-		                           <concept nombre="matematicas">
-		                           </concept>
-		                       </concept>
-		                       <concept nombre="ciencias naturales">
-		                           <concept nombre="biología">
-		                           </concept>
-		                           <concept nombre="química">
-		                           </concept>
-		                       </concept>
-		                   </concept>
-		               </concept>
-		           </concept>
-		       </concept>
-		   </concept>
-	    </concept>
-	    <concept nombre="entidad fisica">
-		   <languaje>Spanish</languaje>
-		   <word>Entidad fisica</word>
+	
+<concept nombre="entidad">
+    <concept nombre="entidad abstracta">
+        <concept nombre="atributo">
+            <concept nombre="sentimiento">
+                <concept nombre="emoción">
+                    <concept nombre="felicidad">
+                    </concept>
+                    <concept nombre="tristeza"></concept>
+                </concept>
+            </concept>
+        </concept>
+        <concept nombre="capacidad psicologica">
+            <concept nombre="conocimiento">
+                <concept nombre="proceso cognitivo">
+                    <concept nombre="proceso cognitivo básico">
+                        <concept nombre="precepción">
+                            <concept nombre="sencación">
+                                <concept nombre="experiencia sensorial">
+                                    <concept nombre="sabor">
+                                    </concept>
+                                    <concept nombre="olor">
+                                    </concept>
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+                <concept nombre="contenido cognitivo">
+                    <concept nombre="dominio del conocimiento">
+                        <concept nombre="area del conocimiento">
+                            <concept nombre="ciencia">
+                                <concept nombre="matematicas">
+                                </concept>
+                            </concept>
+                            <concept nombre="ciencias naturales">
+                                <concept nombre="biología">
+                                </concept>
+                                <concept nombre="química">
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+            </concept>
+        </concept>
+    </concept>
+    
+    <concept nombre="entidad física">
+        <languaje>Spanish</languaje>
+        <word>Entidad fisica</word>
 
-		   <concept nombre="objeto físico">
-		       <concept nombre="mesa"></concept>
-		       <concept nombre="artefacto">
-		           <concept nombre="instrumentalidad">
-		               <concept nombre="transporte">
-		                   <concept nombre="vehículo">
-		                       <concept nombre="navegador">
-		                           <concept nombre="aéreo">
-		                               <concept nombre="avión">
-		                               </concept>
-		                           </concept>
-		                           <concept nombre="maritimo">
-		                               <concept nombre="barco">
-		                               </concept>
-		                           </concept>
-		                       </concept>
-		                   </concept>
-		                   <concept nombre="transporte público">
-		                       <concept nombre="autobús">
-		                       </concept>
-		                       <concept nombre="tren">
-		                       </concept>
-		                       <concept nombre="metro">
-		                       </concept>
-		                   </concept>
-		               </concept>
-		           </concept>
-		           <concept nombre="creación">
-		               <concept nombre="producto">
-		                   <concept nombre="trabajo">
-		                       <concept nombre="publicación">
-		                           <concept nombre="libro">
-		                           </concept>
-		                       </concept>
-		                   </concept>
-		               </concept>
-		           </concept>
-		           <concept nombre="herramienta">
-		               <concept nombre="herramienta de jardín">
-		                   <concept nombre="podadora">
-		                   </concept>
-		               </concept>
-		           </concept>
+        <concept nombre="objeto físico">
+            <concept nombre="organismo viviente">
+                <concept nombre="persona">
+                    
+                    <concept nombre="trabajador">
+                        <concept nombre="empleado">
+                        </concept>
+                        <concept nombre="trabajador calificado">
+                            <concept nombre="militar">
+                                <concept nombre="oficial militar">
+                                    <concept nombre="general"></concept>
+                                    <concept nombre="coronel"></concept>
+                                    <concept nombre="oficial mayor"></concept>
+                                    <concept nombre="mariscal"></concept>
+                                </concept>
+                                <concept nombre="enlistado">
+                                    <concept nombre="soldado">
+                                    </concept>
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                    <concept nombre="amigo"></concept>
+                    <concept nombre="familiar">
+                        <concept nombre="hermano"></concept>
+                        <concept nombre="hermana"></concept>
+                        <concept nombre="padre"></concept>
+                        <concept nombre="madre"></concept>
+                        <concept nombre="tío"></concept>
+                        <concept nombre="tía"></concept>
+                        <concept nombre="pareja">
+                            <concept nombre="novia"></concept>
+                            <concept nombre="novio"></concept>
+                            <concept nombre="esposo"></concept>
+                            <concept nombre="esposa"></concept>
+                        </concept>
+                    </concept>
+                </concept>
+            </concept>
+            <concept nombre="ubicación">
+                <concept nombre="continente">
+                    <concept nombre="europa"></concept>
+                    <concept nombre="américa"></concept>
+                </concept>
+                <concept nombre="región">
+                    <concept nombre="división territorial">
+                        <concept nombre="estado">
+                            <concept nombre="oaxaca">
+                            </concept>
+                            <concept nombre="sonora">                            
+                            </concept>                                
+                            <concept nombre="hidalgo">                            
+                            </concept>    
+                            <concept nombre="jalisco">    
+                            </concept>    
+                        </concept>
+                        <concept nombre="país">    
+                            <concept nombre="México"></concept>
+                        </concept>
+                        <concept nombre="población">
+                            <concept nombre="municipalidad">
+                                <concept nombre="ciudad">
+                                    <concept nombre="madrid">
+                                    </concept>
+                                    <concept nombre="guadalajara">
+                                    </concept>                
+                                    <concept nombre="df">
+                                    </concept>
+                                    <concept nombre="guanajuato">
+                                    </concept>
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+            </concept>
+            </concept>
+            <concept nombre="mesa"></concept>
+            <concept nombre="artefacto">
+                <concept nombre="instrumentalidad">
+                    <concept nombre="contenedor">
+                        <languaje>Spanish</languaje>
+                        <word>contenedor</word>
+                        <concept nombre="taza">
+                            <languaje>Spanish</languaje>
+                            <word>taza</word>
+                        </concept>
+                        <concept nombre="vaso">
+                            <languaje>Spanish</languaje>
+                            <word>vaso</word>
+                        </concept>
+                        <concept nombre="olla">
+                            <languaje>Spanish</languaje>
+                            <word>olla</word>
+                        </concept>
+                    </concept>
+                    <concept nombre="transporte">
+                        <concept nombre="vehículo">
+                            <concept nombre="navegador">
+                                <concept nombre="aéreo">
+                                    <concept nombre="avión">
+                                    </concept>
+                                </concept>
+                                <concept nombre="maritimo">
+                                    <concept nombre="barco">
+                                    </concept>
+                                </concept>
+                            </concept>
+                        </concept>
+                        <concept nombre="transporte público">
+                            <concept nombre="autobús">
+                            </concept>
+                            <concept nombre="tren">
+                            </concept>
+                            <concept nombre="metro">
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+                <concept nombre="creación">
+                    <concept nombre="producto">
+                        <concept nombre="trabajo">
+                            <concept nombre="publicación">
+                                <concept nombre="libro">
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+                <concept nombre="herramienta">
+                    <concept nombre="herramienta de jardín">
+                        <concept nombre="podadora">
+                        </concept>
+                    </concept>
+                </concept>
 
-		       </concept>
-		   </concept>
+            </concept>
+        <concept nombre="materia">
+            <concept nombre="solido">
+                <concept nombre="plastico"></concept>
+            </concept>
+            <concept nombre="fluido">
+                <concept nombre="liquido">
+                    <concept nombre="agua">
+                    </concept>
+                </concept>
+            </concept>
+            <concept nombre="sustancia">
+                <concept nombre="material">
+                    <concept nombre="planta">
+                        <concept nombre="madera"></concept>
+                    </concept>
+                    <concept nombre="tierra">
+                        <concept nombre="suelo">
+                            <concept nombre="barro">
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+                
+                <concept nombre="alimento">
+                    <concept nombre="productos horneados">
+                        <concept nombre="pastelillo">
+                            <concept nombre="rosquilla"></concept>
+                            <concept nombre="pastel"></concept>
+                            <concept nombre="magdalena"></concept>
+                            <concept nombre="bollo"></concept>
+                            <concept nombre="tarta"></concept>
+                            <concept nombre="pay"></concept>
+                            <concept nombre="galleta"></concept>
+                        </concept>
+                    </concept>
+                    <concept nombre="platillo">
+                        <concept nombre="pizza">         
+                            <languaje>Spanish</languaje> 
+                            <word>pizza</word>         
+                        </concept>
+                        <concept nombre="tacos">         
+                            <languaje>Spanish</languaje> 
+                            <word>tacos</word>         
+                        </concept>
 
-		   <concept nombre="materia">
-		       <concept nombre="sustancia">
-		           <concept nombre="alimento">
-		               <concept nombre="bebida">
-		                   <concept nombre="café">
-		                   </concept>
-		                   <concept nombre="leche">
-		                   </concept>
-		               </concept>
-		           </concept>
-		           <concept nombre="combustible">
-		               <concept nombre="gasolina">
-		               </concept>
-		               <concept nombre="diesel">
-		               </concept>
-		               <concept nombre="gas natural">
-		               </concept>
-		           </concept>
-		       </concept>
-		   </concept>
+                        <concept nombre="donas">         
+                            <languaje>Spanish</languaje> 
+                            <word>donas</word>         
+                        </concept>
 
-		   <concept nombre="persona">
-		       <languaje>Spanish</languaje>        
-		       <word>persona</word>
-		       <concept nombre="hermano">
-		           <languaje>Spanish</languaje>        
-		           <word>leche</word>
-		       </concept>
-		   </concept>
+                        <concept nombre="pozole">         
+                            <languaje>Spanish</languaje> 
+                            <word>pozole</word>         
+                        </concept>
 
-		   <concept nombre="contenedor">
-		       <languaje>Spanish</languaje>
-		       <word>contenedor</word>
-		       <concept nombre="taza">
-		           <languaje>Spanish</languaje>
-		           <word>taza</word>
-		       </concept>
+                        <concept nombre="mole">         
+                            <languaje>Spanish</languaje> 
+                            <word>mole</word>         
+                        </concept>
+                        <concept nombre="bistec">         
+                            <languaje>Spanish</languaje> 
+                            <word>bistec</word>         
+                        </concept>
 
-		       <concept nombre="vaso">
-		           <languaje>Spanish</languaje>
-		           <word>vaso</word>
-		       </concept>
+                    </concept>
+                    <concept nombre="producto alimenticio">
+                        <concept nombre="ingrediente">
+                            <concept nombre="saborizante">
+                                <concept nombre="endulzante">
+                                    <concept nombre="miel"></concept>
+                                    <concept nombre="azucar"></concept>
+                                    <concept nombre="jarabe"></concept>
+                                    <concept nombre="sacarina"></concept>
+                                        
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                    <concept nombre="bebida">
+                        <concept nombre="refresco"></concept>
+                        <concept nombre="café">
+                        </concept>
+                        <concept nombre="leche">
+                        </concept>
+                        <concept nombre="té"></concept>
+                    </concept>
+                </concept>
+                <concept nombre="combustible">
+                    <concept nombre="gasolina">
+                    </concept>
+                    <concept nombre="diesel">
+                    </concept>
+                    <concept nombre="gas natural">
+                    </concept>
+                    
+                </concept>
+            </concept>
+        </concept>
+    </concept>    
+    <concept nombre="mover">
+        <concept nombre="transferir">
+            <concept nombre="transmitir">
+                <concept nombre="comunicar">
+                    <concept nombre="solicitar">
+                        <concept nombre="ordenar">
+                            <concept nombre="mandar">
+                            </concept>
+                            <concept nombre="instruir">
+                            </concept>
+                            <concept nombre="dirigir">
+                            </concept>
+                            <concept nombre="advertir">
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+            </concept>
+        </concept>
+    </concept>
+    <concept nombre="accion">
+            <languaje>Spanish</languaje>
+            <word>acción</word>
+            <concept nombre="jugar">
+                <languaje>Spanish</languaje>
+                <word>jugar</word>
+            </concept>
 
+            <concept nombre="desplazar">
+                <languaje>Spanish</languaje>
+                <word>desplazar</word>
+                <concept nombre="ir">
+                </concept>
+                <concept nombre="viajar">
+                    <languaje>Spanish</languaje>
+                    <word>viajar</word>
+                </concept>
 
-		       <concept nombre="olla">
-		           <languaje>Spanish</languaje>
-		           <word>olla</word>
-		       </concept>
-		   </concept>
+                <concept nombre="trasladar">
+                    <languaje>Spanish</languaje>
+                    <word>trasladar</word>
+                </concept>
 
-		   <concept nombre="alimento">        
-		       <languaje>Spanish</languaje>
-		       <word>alimento</word>
+                <concept nombre="mover">
+                    <languaje>Spanish</languaje>
+                    <word>mover</word>
+                </concept>
 
-		       <concept nombre="pizza">         
-		           <languaje>Spanish</languaje> 
-		           <word>pizza</word>         
-		       </concept>
+            </concept>
 
-		       <concept nombre="tacos">         
-		           <languaje>Spanish</languaje> 
-		           <word>tacos</word>         
-		       </concept>
+            <concept nombre="bailar">
+                <languaje>Spanish</languaje>
+                <word>bailar</word>
+            </concept>
 
-		       <concept nombre="donas">         
-		           <languaje>Spanish</languaje> 
-		           <word>donas</word>         
-		       </concept>
+            <concept nombre="saltar">
+                <languaje>Spanish</languaje>
+                <word>saltar</word>
+            </concept>
 
-		       <concept nombre="pozole">         
-		           <languaje>Spanish</languaje> 
-		           <word>pozole</word>         
-		       </concept>
-
-		       <concept nombre="mole">         
-		           <languaje>Spanish</languaje> 
-		           <word>mole</word>         
-		       </concept>
-		       <concept nombre="bistec">         
-		           <languaje>Spanish</languaje> 
-		           <word>bistec</word>         
-		       </concept>
-		   </concept>
-
-		   <concept nombre="modo">        
-		       <languaje>Spanish</languaje>
-		       <word>modo</word>
-		       <concept nombre="felicidad">         
-		           <languaje>Spanish</languaje> 
-		           <word>felicidad</word>         
-		       </concept>
-
-		       <concept nombre="tristeza">         
-		           <languaje>Spanish</languaje> 
-		           <word>tristeza</word>         
-		       </concept>
-		   </concept>
-
-		   <concept nombre="accion">
-		       <languaje>Spanish</languaje>
-		       <word>acción</word>
-		       <concept nombre="jugar">
-		           <languaje>Spanish</languaje>
-		           <word>jugar</word>
-		       </concept>
-
-		       <concept nombre="desplazar">
-		           <languaje>Spanish</languaje>
-		           <word>desplazar</word>
-		           <concept nombre="ir">
-		           </concept>
-		           <concept nombre="viajar">
-		               <languaje>Spanish</languaje>
-		               <word>viajar</word>
-		           </concept>
-
-		           <concept nombre="trasladar">
-		               <languaje>Spanish</languaje>
-		               <word>trasladar</word>
-		           </concept>
-
-		           <concept nombre="mover">
-		               <languaje>Spanish</languaje>
-		               <word>mover</word>
-		           </concept>
-
-		       </concept>
-
-		       <concept nombre="bailar">
-		           <languaje>Spanish</languaje>
-		           <word>bailar</word>
-		       </concept>
-
-		       <concept nombre="saltar">
-		           <languaje>Spanish</languaje>
-		           <word>saltar</word>
-		       </concept>
-
-		       <concept nombre="comer">
-		           <languaje>Spanish</languaje>
-		           <word>comer</word>
-		       </concept>
-		   </concept>
-
-		   <concept nombre="territorio">
-		       <languaje>Spanish</languaje>
-		       <word>terrirorio</word>
-		       <concept nombre="continente">
-		           <languaje>Spanish</languaje>
-		           <word>continente</word>
-		           <concept nombre="europa">
-		           </concept>
-		       </concept>
-		       <concept nombre="país"> 
-		           <concept nombre="méxico">
-		           </concept>    
-		       </concept>
-
-		       <concept nombre="ciudad">
-		           <concept nombre="madrid">
-		           </concept>
-		           <concept nombre="guadalajara">
-		           </concept>                
-		           <concept nombre="df">
-		           </concept>
-		           <concept nombre="guanajuato">
-		           </concept>
-
-		       </concept>
-
-		       <concept nombre="estado">
-		           <concept nombre="oaxaca">
-		           </concept>
-
-		           <concept nombre="sonora">
-		           </concept>
-
-		           <concept nombre="hidalgo">
-		           </concept>
-
-		           <concept nombre="jalisco">
-		           </concept>
-		       </concept>
-		   </concept>
-
-		   <concept nombre="material">
-		       <languaje>Spanish</languaje>
-		       <word>material</word>
-		       <concept nombre="barro">
-		           <languaje>Spanish</languaje>
-		           <word>barro</word>
-		       </concept>
-
-		       <concept nombre="madera">
-		           <languaje>Spanish</languaje>
-		           <word>madera</word>
-		       </concept>
-
-		       <concept nombre="plastico">
-		           <languaje>Spanish</languaje>
-		           <word>plastico</word>
-		       </concept>
-		   </concept>
-		   <concept nombre="nombre_propio">
-		       <concept nombre="juan"></concept>
-		       <concept nombre="enrique"></concept>
-		       <concept nombre="franz"></concept>
-		       <concept nombre="bruno"></concept>
-		       <concept nombre="maria"></concept>
-		       <concept nombre="joel"></concept>
-		       <concept nombre="omar"></concept>
-		       <concept nombre="olga"></concept>
-		       <concept nombre="alma"></concept>
-		       <concept nombre="ruben"></concept>
-		       <concept nombre="consuelo"></concept>
-		   </concept>
-
-	    </concept>
-	</concept>
+            <concept nombre="comer">
+                <languaje>Spanish</languaje>
+                <word>comer</word>
+            </concept>
+        </concept>
+        <concept nombre="nombre_propio">
+            <concept nombre="juan"></concept>
+            <concept nombre="enrique"></concept>
+            <concept nombre="franz"></concept>
+            <concept nombre="bruno"></concept>
+            <concept nombre="maria"></concept>
+            <concept nombre="joel"></concept>
+            <concept nombre="omar"></concept>
+            <concept nombre="olga"></concept>
+            <concept nombre="alma"></concept>
+            <concept nombre="ruben"></concept>
+            <concept nombre="consuelo"></concept>
+        </concept>
+</concept>
 </root>
