@@ -3,21 +3,21 @@
 <root>
 	<concept nombre="relacion">
     <concept nombre="a">
-        <concept nombre="rumbo-a">
+        <concept nombre="rumbo-a">  <!-- 1 -->
             <agente>desplazar</agente>
             <tipoAgente>V</tipoAgente>
             <pasivo>ubicación</pasivo>
             <tipoPasivo>N</tipoPasivo>
         </concept>
         
-        <concept nombre="que-funciona-con">            
+        <concept nombre="que-funciona-con"> <!-- 2 -->
             <agente>artefacto</agente>
             <tipoAgente>N</tipoAgente>
             <pasivo>combustible</pasivo>
             <tipoPasivo>N</tipoPasivo>
         </concept>
         
-        <concept nombre="parecido-a">
+        <concept nombre="parecido-a"> <!-- 3 -->
             <agente>experiencia sensorial</agente>
             <tipoAgente>N</tipoAgente>
             <pasivo>sustancia</pasivo>
@@ -26,13 +26,13 @@
         
     </concept>
     <concept nombre="bajo">
-        <concept nombre="por-debajo-de">
+        <concept nombre="por-debajo-de">    <!-- 4 -->
             <agente>objeto físico</agente>
             <tipoAgente>N</tipoAgente>
             <pasivo>entidad física</pasivo>
             <tipoPasivo>N</tipoPasivo>
         </concept>
-        <concept nombre="dirigidos-por">
+        <concept nombre="dirigidos-por">    <!-- 5 -->
             <agente>persona</agente>
             <tipoAgente>N</tipoAgente>
             <pasivo>solicitar</pasivo>
@@ -40,25 +40,25 @@
         </concept>
     </concept>
     <concept nombre="con">
-        <concept nombre="del-modo-con">
+        <concept nombre="del-modo-con"> <!-- 6 -->
             <agente>alimento</agente>
             <pasivo>emoción</pasivo>
         </concept>
-        <concept nombre="que-tiene">
+        <concept nombre="que-tiene">    <!-- 7 -->
             <agente>bebida</agente>
             <tipoAgente>N</tipoAgente> <!--Indica que componente lexico sera el agente -->
             <pasivo>bebida</pasivo>
             <tipoPasivo>N</tipoPasivo>
         </concept>
-        <concept nombre="en-compañia-de">     
+        <concept nombre="en-compañia-de">     <!-- 8 -->
             <agente>bebida</agente>
             <pasivo>persona</pasivo>
         </concept>            
-        <concept nombre="con-contenido">    
+        <concept nombre="con-contenido">    <!-- 9 -->
             <agente>contenedor</agente>    
             <pasivo>bebida</pasivo>
         </concept>    
-        <concept nombre="con-el-proposito">
+        <concept nombre="con-el-proposito"> <!-- 10 -->
             <agente>accion</agente>
             <tipoAgente>V</tipoAgente>
             <pasivo></pasivo>
@@ -67,17 +67,17 @@
     </concept>    
     
     <concept nombre="de">
-        <concept nombre="hecho-de">
+        <concept nombre="hecho-de"> <!-- 11 -->
             <agente>entidad fisica</agente>
             <pasivo>material</pasivo>
         </concept>  
                 
-        <concept nombre="que-contiene">
+        <concept nombre="que-contiene"> <!-- 12 -->
             <agente>contenedor</agente>
             <pasivo>alimento</pasivo>
         </concept> 
         
-        <concept nombre="propiedad-de">
+        <concept nombre="propiedad-de"> <!-- 13 -->
             <agente>objeto físico</agente>
             <tipoAgente>N</tipoAgente>
             <pasivo>nombre_propio</pasivo>
@@ -85,7 +85,7 @@
         </concept>
     </concept>
     <concept nombre="para">
-        <concept nombre="con-rumbo-a">
+        <concept nombre="con-rumbo-a">  <!-- 14 -->
             <agente>transporte</agente>
             <tipoAgente>N</tipoAgente>
             <pasivo>territorio</pasivo>
