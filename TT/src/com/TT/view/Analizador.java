@@ -23,14 +23,17 @@ public class Analizador extends javax.swing.JFrame {
         tagged = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
         labelEstado = new javax.swing.JLabel();
-        panelImagenes = new javax.swing.JPanel();
         buttonNuevo = new javax.swing.JButton();
+        panelImagenes = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Módulo de análisis semántico");
 
         jLabel1.setText("Ingresa la oracion:");
 
         botonAnalizar.setText("Analizar");
+
+        buttonNuevo.setText("Nueva oración");
 
         javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
         panelImagenes.setLayout(panelImagenesLayout);
@@ -43,8 +46,6 @@ public class Analizador extends javax.swing.JFrame {
             .addGap(0, 326, Short.MAX_VALUE)
         );
 
-        buttonNuevo.setText("Nueva oración");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -52,16 +53,17 @@ public class Analizador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 143, Short.MAX_VALUE)
                         .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(121, 121, 121))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelImagenes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelEstado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(line, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tagged, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,7 +71,10 @@ public class Analizador extends javax.swing.JFrame {
                                         .addComponent(botonAnalizar)
                                         .addGap(18, 18, 18)
                                         .addComponent(buttonNuevo)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(tagged, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -94,6 +99,8 @@ public class Analizador extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleName("desktopPane");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,7 +111,7 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel labelEstado;
     public javax.swing.JTextField line;
-    public static javax.swing.JPanel panelImagenes;
+    public javax.swing.JPanel panelImagenes;
     public static javax.swing.JProgressBar progressBar;
     public static javax.swing.JLabel tagged;
     // End of variables declaration//GEN-END:variables

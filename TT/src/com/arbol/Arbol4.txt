@@ -1,0 +1,28 @@
+digraph G 
+ { 
+"nodo0" [label="toma\n(VMIP3S0)"]; 
+"nodo1" [label="Franz\n(NP00000)"]; 
+"nodo2" [label="café\n(NCMS000)"]; 
+"nodo3" [label="en-compañia-de\n(SPS00)"]; 
+"nodo4" [label="hermano\n(NCMS000)"]; 
+"nodo5" [label="mi\n(DP1CSS)"]; 
+"nodo6" [label=".\n(Fp)"]; 
+"nodo7" [label="toma\n(VMIP3S0)"]; 
+"nodo8" [label="Enrique\n(NP00000)"]; 
+"nodo9" [label="café\n(NCMS000)"]; 
+"nodo10" [label="que-tiene\n(SPS00)"]; 
+"nodo11" [label="leche\n(NCFS000)"]; 
+"nodo12" [label=".\n(Fp)"]; 
+
+"nodo0" -> "nodo1"; 
+"nodo0" -> "nodo2"; 
+"nodo2" -> "nodo3"; 
+"nodo3" -> "nodo4"; 
+"nodo4" -> "nodo5"; 
+"nodo0" -> "nodo6"; 
+"nodo7" -> "nodo8"; 
+"nodo7" -> "nodo9"; 
+"nodo9" -> "nodo10"; 
+"nodo10" -> "nodo11"; 
+"nodo7" -> "nodo12"; 
+}

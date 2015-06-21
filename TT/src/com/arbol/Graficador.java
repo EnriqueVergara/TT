@@ -6,9 +6,6 @@
 package com.arbol;
 
 import com.TT.view.Analizador;
-import static com.TT.view.Analizador.oraciones;
-import static com.TT.view.Analizador.panelImagenes;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.io.File;
@@ -22,18 +19,19 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author bruno
  */
 public class Graficador {
-    String path = "/home/enrique/NetBeansProjects/TT/TT/src/com/arbol";
+    String path = "/home/bruno/NetBeansProjects/TT/TT/src/com/arbol";
     List<String> relacionArbol;
+    List<Nodo> nodosArbol;
     
-    public Graficador(List<String> relacionArbol) {
+    public Graficador(List<String> relacionArbol, List<Nodo> nodosArbol) {
         this.relacionArbol = relacionArbol;
+        this.nodosArbol = nodosArbol;
     }
     
     public List<JLabel> crearGraficaArbol() {
@@ -58,19 +56,14 @@ public class Graficador {
                 //Encabezado del archivo que será leido por graphviz
                 print.append("digraph G \n" + " { \n");
 
-                for(int j = 0; j < relacionArbol.size(); j++) {
-                    if(!relacionArbol.get(j).equalsIgnoreCase("NuevaOracion")) {
-                        separador = relacionArbol.get(j).indexOf(',');
-                        padre = relacionArbol.get(j).substring(0, separador);
-                        hijo = relacionArbol.get(j).substring(separador + 1);
-
-                        if(!padre.equalsIgnoreCase(" ")) {
-                            print.append("\"" + padre + "\"->\"" + hijo + "\"; \n");
-                        }
-                    } else {
-                        borrar = j;
-                        break;
-                    } 
+                for(Nodo n: nodosArbol) {
+                    print.append("\"" + n.getId() + "\" [label=\"" + n.getName() + "\\n(" + n.getTag() + ")\"]; \n");
+                }
+                print.append("\n");
+                for(Nodo n: nodosArbol) {
+                    if(!n.getIdPadre().equalsIgnoreCase("")) {
+                        print.append("\"" + n.getIdPadre() + "\" -> \"" + n.getId() + "\"; \n");
+                    }
                 }
 
                 print.append("}");
@@ -87,15 +80,7 @@ public class Graficador {
                 System.out.println(e.getMessage());
             } 
         }
-        
-        //Elimina las imagenes que estén creadas
-        for(int i = 0; i < oraciones; i++) {
-            File f = new File(path + "outfile" + i + ".jpg");
-            if(f.exists()) {
-                f.delete();
-            }
-        }
-        
+
         Analizador.oraciones = oraciones;
         return compilarGrafo(oraciones);
     }
@@ -106,7 +91,7 @@ public class Graficador {
                 String cmd = "dot -Tjpg " + path + "/Arbol" + i +".txt -o " + path + "/outfile" + i + ".jpg";
                 Process p = Runtime.getRuntime().exec(cmd);
                 p.waitFor();
-                Desktop.getDesktop().open(new File(path + "/outfile" + i + ".jpg"));
+                //Desktop.getDesktop().open(new File(path + "/outfile" + i + ".jpg"));
             } catch (IOException e) {
                 System.out.println("Error al generar el árbol. " + e.getMessage());
             } catch (InterruptedException ex) {
@@ -114,19 +99,14 @@ public class Graficador {
             } 
         }
         
-     //   panelImagenes.removeAll();
-       // panelImagenes.setLayout(new java.awt.GridLayout(0, oraciones));
         List<JLabel> imagenes=new ArrayList();
         for(int i = 0; i < oraciones; i++) {
             JLabel etiqueta = new JLabel();
             String imgPath = path + "/outfile" + i + ".jpg";
-            ImageIcon ic = new ImageIcon(imgPath);
-            Icon icon = new ImageIcon(ic.getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
-            etiqueta.setIcon(ic);
+            ImageIcon icon = new ImageIcon(imgPath);
+            icon.getImage().flush(); //Limpiamos el flujo del jLabel para que se actualice correctamente
+            etiqueta.setIcon(icon);
             imagenes.add(etiqueta);
-          //  Analizador.panelImagenes.add(etiqueta);
-           // etiqueta.setVisible(true);
-            //Analizador.panelImagenes.updateUI();
         }
         return imagenes;
     }
