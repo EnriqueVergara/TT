@@ -28,7 +28,7 @@ public class Ontologia {
     }
     
     public Relacion buscarEnIndiceRel(String concepto){
-        Relacion result=new Relacion();
+        Relacion result=null;
         int i;
         for(i=0;i<indexRel.size();i++){
             if(indexRel.get(i).getNombre().equals(concepto))

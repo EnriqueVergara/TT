@@ -66,22 +66,32 @@ public class DesambiguadorPrep {
                     analisis=new Analysis(); 
                     wordAux=new Word();
                     analisis.setTag("SPS00"); 
-                    rel=ontologia.buscarEnIndiceRel(vec.get(i).getLemma());  
+                    wordAux.setForm(vec.get(i).getForm());
+                    analisis.setLemma(vec.get(i).getForm());
+                    try{
+                    rel=ontologia.buscarEnIndiceRel(vec.get(i).getLemma()); 
                     for(int cont=0;cont<rel.getHijos().size();cont++){
                         agente=ontologia.buscarEnIndice(buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
                         pasivo=ontologia.buscarEnIndice(buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
-                        //System.out.println(rel.getHijos().get(cont).getNombre()+"  "+rel.getHijos().get(cont).getTipoAgente()+"  "+pasivo.getNombre());
                         if(des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
                             desambiguado=rel.getHijos().get(cont).getNombre();    
                             cont=rel.getHijos().size();
                         }
                     } 
                     
-                    analisis.setLemma(desambiguado);
+                    if(!desambiguado.equals(""))
+                    {   
+                        analisis.setLemma(desambiguado); 
+                        //wordAux.setForm(vec.get(i).getForm()); 
+                        wordAux.setForm(desambiguado);
+                        desambiguado="";
+                    }
                     wordAux.setAnalysis(analisis);
-                    //wordAux.setForm(vec.get(i).getForm()); 
-                    wordAux.setForm(desambiguado);
                     sentAux.pushBack(wordAux);
+                    }catch(Exception ex){
+                       // ex.printStackTrace();
+                        sentAux.pushBack(vec.get(i));
+                    }
                 }
                 else{           
                     sentAux.pushBack(vec.get(i));

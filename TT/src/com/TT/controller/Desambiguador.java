@@ -30,7 +30,7 @@ public class Desambiguador {
     //    System.out.println("Concepto a empatar:"+concepto2.getNombre());
   //      System.out.println("Concepto a intentar: "+concepto1.getNombre());
 //        System.out.println();
-        if(concepto1.getNombre().equals("entidad"))
+        if(concepto1==null)
             return false;
         if(concepto1.equals(concepto2))
             return true;

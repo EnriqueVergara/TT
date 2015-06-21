@@ -4,7 +4,57 @@
 	
 <concept nombre="entidad">
     <concept nombre="entidad abstracta">
+        <concept nombre="cantidad">
+            <concept nombre="periodo">
+                
+            </concept>
+        </concept>
+        <concept nombre="comunicación">
+            <concept nombre="señal">
+                <concept nombre="símbolo">
+                    <concept nombre="reconocimiento">
+                        <concept nombre="título"></concept>
+                        <concept nombre="nobel"></concept>
+                        <concept nombre="oscar"></concept>
+                        <concept nombre="emmy"></concept>
+                        <concept nombre="trofeo"></concept>
+                        
+                    </concept>
+                </concept>
+            </concept>
+            <concept nombre="declaración">
+                <concept nombre="amenaza"></concept>
+            </concept>
+        </concept>
         <concept nombre="atributo">
+            <concept nombre="condición">
+                <concept nombre="estado patológico">
+                    <concept nombre="problema de salud">
+                        <concept nombre="enfermedad">
+                            <concept nombre="cancer"></concept>    
+                            <concept nombre="sida"></concept>
+                            <concept nombre="diabetes"></concept>
+                            <concept nombre="enfermedad contagiosa">
+                                <concept nombre="viruela"></concept>
+                                <concept nombre="gripe"></concept>
+                                <concept nombre="influenza"></concept>
+                                <concept nombre="difteria"></concept>
+                                <concept nombre="escarlatina"></concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                    
+                </concept>
+                <concept nombre="ascendencia">
+                    <concept nombre="dominio">
+                        <concept nombre="reinado"></concept>
+                        <concept nombre="mandato"></concept>
+                    </concept>
+                </concept>
+                <concept nombre="circunstancia"></concept>
+                <concept nombre="situación"></concept>
+                
+            </concept>
             <concept nombre="sentimiento">
                 <concept nombre="emoción">
                     <concept nombre="felicidad">
@@ -14,6 +64,19 @@
             </concept>
         </concept>
         <concept nombre="capacidad psicologica">
+            <concept nombre="evento">
+                <concept nombre="acto">
+                    <concept nombre="actividad">
+                        <concept nombre="labor">
+                            <concept nombre="esfuerzo">
+                                <concept nombre="dificultad"> </concept>
+                                <concept nombre="problema"> </concept>
+                                <concept nombre="lucha"> </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
+            </concept>
             <concept nombre="conocimiento">
                 <concept nombre="proceso cognitivo">
                     <concept nombre="proceso cognitivo básico">
@@ -32,8 +95,11 @@
                 <concept nombre="contenido cognitivo">
                     <concept nombre="dominio del conocimiento">
                         <concept nombre="area del conocimiento">
+                            <concept nombre="literatura">
+                                <concept nombre="lenguaje"></concept>
+                            </concept>
                             <concept nombre="ciencia">
-                                <concept nombre="matematicas">
+                                <concept nombre="matemática">
                                 </concept>
                             </concept>
                             <concept nombre="ciencias naturales">
@@ -52,7 +118,39 @@
     <concept nombre="entidad física">
         <languaje>Spanish</languaje>
         <word>Entidad fisica</word>
-
+        <concept nombre="cosa">
+            <concept nombre="parte">
+                <concept nombre="parte del cuerpo">
+                    <concept nombre="tejido">
+                        <concept nombre="tejido animal">
+                            <concept nombre="hueso">
+                                <concept nombre="diente">
+                                    <concept nombre="canino">
+                                        <concept nombre="colmillo">
+                                        </concept>
+                                    </concept>
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                    <concept nombre="tórax"></concept>
+                    <concept nombre="torso"></concept>
+                    <concept nombre="dedo"></concept>
+                    <concept nombre="pie"></concept>
+                    <concept nombre="cabeza"></concept>
+                    <concept nombre="hombro"></concept>
+                    <concept nombre="mano"></concept>
+                    <concept nombre="cadera"></concept>
+                    <concept nombre="organo">
+                        <concept nombre="organo sensorial">
+                            <concept nombre="ojo"></concept>
+                            <concept nombre="oido"></concept>
+                        </concept>
+                    </concept>
+                </concept>
+            </concept>
+        </concept>
+        
         <concept nombre="objeto físico">
             <concept nombre="organismo viviente">
                 <concept nombre="persona">
@@ -129,10 +227,38 @@
                     </concept>
                 </concept>
             </concept>
-            </concept>
-            <concept nombre="mesa"></concept>
             <concept nombre="artefacto">
+                <concept nombre="cuerda"></concept>
+                <concept nombre="estructura">
+                    <concept nombre="obstrucción">
+                        <concept nombre="barrera">
+                            <concept nombre="barrera móvil">
+                                <concept nombre="puerta"></concept>
+                                <concept nombre="zaguan"></concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
                 <concept nombre="instrumentalidad">
+                    <concept nombre="dispositivo">
+                        <concept nombre="máquina">
+                            <concept nombre="computador"></concept>
+                            <concept nombre="calculador"></concept>
+                            <concept nombre="móvil"></concept>
+                            <concept nombre="celular"></concept>
+                            <concept nombre="laptop"></concept>
+                        </concept>
+                    </concept>
+                    
+                    <concept nombre="mobiliario">
+                        <concept nombre="mesa"></concept>
+                        <concept nombre="cama"></concept>
+                        <concept nombre="escritorio"></concept>
+                        <concept nombre="silla"></concept>
+                        <concept nombre="comedor"></concept>
+                        <concept nombre="sillón"></concept>
+                        <concept nombre="librero"></concept>
+                    </concept>
                     <concept nombre="contenedor">
                         <languaje>Spanish</languaje>
                         <word>contenedor</word>
@@ -184,12 +310,13 @@
                 </concept>
                 <concept nombre="herramienta">
                     <concept nombre="herramienta de jardín">
-                        <concept nombre="podadora">
+                        <concept nombre="podador">
                         </concept>
                     </concept>
                 </concept>
 
             </concept>
+        </concept>
         <concept nombre="materia">
             <concept nombre="solido">
                 <concept nombre="plastico"></concept>
@@ -289,29 +416,67 @@
             </concept>
         </concept>
     </concept>    
-    <concept nombre="mover">
-        <concept nombre="transferir">
-            <concept nombre="transmitir">
-                <concept nombre="comunicar">
-                    <concept nombre="solicitar">
-                        <concept nombre="ordenar">
-                            <concept nombre="mandar">
-                            </concept>
-                            <concept nombre="instruir">
-                            </concept>
-                            <concept nombre="dirigir">
-                            </concept>
-                            <concept nombre="advertir">
+    
+    <concept nombre="acción">    
+        <languaje>Spanish</languaje>
+        <word>acción</word>    
+        <concept nombre="connectar">
+            <concept nombre="adjuntar">
+                <concept nombre="asegurar">
+                    <concept nombre="amarrar">
+                    </concept>
+                </concept>
+            </concept>
+        </concept>
+        <concept nombre="mover">
+            <concept nombre="transferir">
+                <concept nombre="transmitir">
+                    <concept nombre="comunicar">
+                        <concept nombre="solicitar">
+                            <concept nombre="ordenar">
+                                <concept nombre="mandar">
+                                </concept>
+                                <concept nombre="instruir">
+                                </concept>
+                                <concept nombre="dirigir">
+                                </concept>
+                                <concept nombre="advertir">
+                                </concept>
                             </concept>
                         </concept>
                     </concept>
                 </concept>
             </concept>
         </concept>
-    </concept>
-    <concept nombre="accion">
-            <languaje>Spanish</languaje>
-            <word>acción</word>
+        <concept nombre="vivir"></concept>
+        <concept nombre="cambiar">
+            <concept nombre="cambiar de estado">
+                <concept nombre="morir"></concept>    
+                <concept nombre="enfermar"></concept>
+                <concept nombre="despertar"></concept>
+                <concept nombre="vestir"></concept>
+                <concept nombre="caer"></concept>
+                <concept nombre="nacer"></concept>
+                <concept nombre="aliviar"></concept>
+                <concept nombre="empeorar"></concept>
+                    
+            </concept>
+            <concept nombre="terminar">
+                <concept nombre="romper"></concept>
+            </concept>
+            <concept nombre="alterar"></concept>
+            <concept nombre="modificar"></concept>
+            <concept nombre="afectar"></concept>
+            <concept nombre="convertir"></concept>
+            <concept nombre="refrescar"></concept>
+            <concept nombre="revolucionar"></concept>
+            <concept nombre="hacer"></concept>
+            <concept nombre="tocar"></concept>
+            <concept nombre="activar"></concept>
+            <concept nombre="editar"></concept>
+
+        </concept>
+        
             <concept nombre="jugar">
                 <languaje>Spanish</languaje>
                 <word>jugar</word>
@@ -332,10 +497,6 @@
                     <word>trasladar</word>
                 </concept>
 
-                <concept nombre="mover">
-                    <languaje>Spanish</languaje>
-                    <word>mover</word>
-                </concept>
 
             </concept>
 
@@ -352,7 +513,13 @@
             <concept nombre="comer">
                 <languaje>Spanish</languaje>
                 <word>comer</word>
+            </concept>        
+            <concept nombre="sobrevivir"></concept>
+            <concept nombre="mostrar"></concept>
+            <concept nombre="emitir">
+                <concept nombre="ladrar"></concept>
             </concept>
+            
         </concept>
         <concept nombre="nombre_propio">
             <concept nombre="juan"></concept>
