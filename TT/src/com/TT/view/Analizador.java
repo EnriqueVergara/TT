@@ -25,6 +25,15 @@ public class Analizador extends javax.swing.JFrame {
         labelEstado = new javax.swing.JLabel();
         buttonNuevo = new javax.swing.JButton();
         panelImagenes = new javax.swing.JPanel();
+        menuBar = new javax.swing.JMenuBar();
+        menuImagen = new javax.swing.JMenu();
+        menuZoom = new javax.swing.JMenu();
+        zoom150 = new javax.swing.JMenuItem();
+        zoom125 = new javax.swing.JMenuItem();
+        zoom75 = new javax.swing.JMenuItem();
+        zoom50 = new javax.swing.JMenuItem();
+        zoom25 = new javax.swing.JMenuItem();
+        menuRestaurar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Módulo de análisis semántico");
@@ -43,8 +52,36 @@ public class Analizador extends javax.swing.JFrame {
         );
         panelImagenesLayout.setVerticalGroup(
             panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 326, Short.MAX_VALUE)
+            .addGap(0, 305, Short.MAX_VALUE)
         );
+
+        menuImagen.setText("Imagen");
+
+        menuZoom.setText("Zoom");
+
+        zoom150.setText("150%");
+        menuZoom.add(zoom150);
+
+        zoom125.setText("125%");
+        menuZoom.add(zoom125);
+
+        zoom75.setText("75%");
+        menuZoom.add(zoom75);
+
+        zoom50.setText("50%");
+        menuZoom.add(zoom50);
+
+        zoom25.setText("25%");
+        menuZoom.add(zoom25);
+
+        menuImagen.add(menuZoom);
+
+        menuRestaurar.setText("Restaurar");
+        menuImagen.add(menuRestaurar);
+
+        menuBar.add(menuImagen);
+
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,8 +148,17 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel labelEstado;
     public javax.swing.JTextField line;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuImagen;
+    public javax.swing.JMenuItem menuRestaurar;
+    private javax.swing.JMenu menuZoom;
     public javax.swing.JPanel panelImagenes;
     public static javax.swing.JProgressBar progressBar;
     public static javax.swing.JLabel tagged;
+    public javax.swing.JMenuItem zoom125;
+    public javax.swing.JMenuItem zoom150;
+    public javax.swing.JMenuItem zoom25;
+    public javax.swing.JMenuItem zoom50;
+    public javax.swing.JMenuItem zoom75;
     // End of variables declaration//GEN-END:variables
 }

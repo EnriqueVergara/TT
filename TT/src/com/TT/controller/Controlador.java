@@ -2,23 +2,31 @@ package com.TT.controller;
 
 import com.TT.view.Analizador;
 import com.arbol.HiloProgressBar;
+import com.arbol.Zoom;
+import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 
 public class Controlador implements ActionListener, KeyListener{  /* Actua como controlador del sistema   */
     private Analizador vista;
     private Analizar modelo;
-    
+    Zoom zoom;
     
     public Controlador(Analizador vista,Analizar modelo){
         this.vista=vista;
@@ -28,6 +36,12 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
         vista.panelImagenes.setLayout(new java.awt.GridLayout(0, 1));
         vista.botonAnalizar.addActionListener(this);
         vista.buttonNuevo.addActionListener(this);
+        vista.zoom150.addActionListener(this);
+        vista.zoom125.addActionListener(this);
+        vista.zoom75.addActionListener(this);
+        vista.zoom50.addActionListener(this);
+        vista.zoom25.addActionListener(this);
+        vista.menuRestaurar.addActionListener(this);
         vista.line.addKeyListener(this);
         vista.setVisible(true);
     }
@@ -49,9 +63,13 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
                 System.out.println(ex.getMessage());
             }
             
-            for (JLabel imagene : imagenes) {
-                vista.panelImagenes.add(imagene);
-                imagene.setVisible(true);
+            try {
+                BufferedImage bi = ImageIO.read(new File("/home/bruno/NetBeansProjects/TT/TT/src/com/arbol/outfile0.jpg"));
+                zoom = new Zoom(bi);
+                vista.panelImagenes.add(zoom);
+                vista.panelImagenes.setSize(bi.getWidth(), bi.getHeight());
+//                  vista.panelImagenes.add(imagene);
+//                  imagene.setVisible(true);
                 vista.panelImagenes.updateUI();
             }
 //            vista.panelImagenes.removeAll();
@@ -61,6 +79,9 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
 //                imagene.setVisible(true);
 //                vista.panelImagenes.updateUI();
 //            }
+            catch (IOException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if(vista.buttonNuevo==e.getSource()){
             vista.line.setText("");
@@ -86,7 +107,24 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
 //        progressBar.setValue(0);
 //        buttonNuevo.setEnabled(false);
         }
-        
+        if(vista.zoom150 == e.getSource()) {
+            zoom.Aumentar(150);
+        }
+        if(vista.zoom125 == e.getSource()) {
+            zoom.Aumentar(125);
+        }
+        if(vista.zoom75 == e.getSource()) {
+            zoom.Disminuir(25);
+        }
+        if(vista.zoom50 == e.getSource()) {
+            zoom.Disminuir(50);
+        }
+        if(vista.zoom25 == e.getSource()) {
+            zoom.Disminuir(75);
+        }
+        if(vista.menuRestaurar == e.getSource()) {
+            zoom.Restaurar();
+        }
     }
 
     @Override
