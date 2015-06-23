@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener, KeyListener{  /* Actua como controlador del sistema   */
     private Analizador vista;
@@ -49,43 +50,50 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(vista.botonAnalizar==e.getSource()){
-            final ExecutorService service;
-            final Future<List<JLabel>> task;
-            List<JLabel> imagenes=new ArrayList();
-            service=Executors.newFixedThreadPool(1);
-            GenerarArbol arbol=new GenerarArbol(modelo.analizador, modelo.ontologia);
-            arbol.setOracion(vista.line.getText());
-            task=service.submit(arbol);
-            try{
-                imagenes=task.get();
-                //System.out.println(task.get().size());
-            }catch(InterruptedException | ExecutionException ex){
-                System.out.println(ex.getMessage());
+            if(vista.line.getText().endsWith(".")){
+                final ExecutorService service;
+                final Future<List<JLabel>> task;
+                List<JLabel> imagenes=new ArrayList();
+                service=Executors.newFixedThreadPool(1);
+                GenerarArbol arbol=new GenerarArbol(modelo.analizador, modelo.ontologia);
+                arbol.setOracion(vista.line.getText());
+                task=service.submit(arbol);
+                try{
+                    imagenes=task.get();
+                    //System.out.println(task.get().size());
+                }catch(InterruptedException | ExecutionException ex){
+                    System.out.println(ex.getMessage());
+                }
+
+                try {
+                    BufferedImage bi = ImageIO.read(new File("/home/enrique/NetBeansProjects/TT/TT/src/com/arbol/outfile0.jpg"));
+                    zoom = new Zoom(bi);
+                    vista.panelImagenes.add(zoom);
+                    vista.panelImagenes.setSize(bi.getWidth(), bi.getHeight());
+    //                  vista.panelImagenes.add(imagene);
+    //                  imagene.setVisible(true);
+                    vista.panelImagenes.updateUI();
+                }
+    //            vista.panelImagenes.removeAll();
+    //            vista.panelImagenes.setLayout(new java.awt.GridLayout(0, imagenes.size()));
+    //            for (JLabel imagene : imagenes) {
+    //                vista.panelImagenes.add(imagene);
+    //                imagene.setVisible(true);
+    //                vista.panelImagenes.updateUI();
+    //            }
+                catch (IOException ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            
-            try {
-                BufferedImage bi = ImageIO.read(new File("/home/bruno/NetBeansProjects/TT/TT/src/com/arbol/outfile0.jpg"));
-                zoom = new Zoom(bi);
-                vista.panelImagenes.add(zoom);
-                vista.panelImagenes.setSize(bi.getWidth(), bi.getHeight());
-//                  vista.panelImagenes.add(imagene);
-//                  imagene.setVisible(true);
-                vista.panelImagenes.updateUI();
-            }
-//            vista.panelImagenes.removeAll();
-//            vista.panelImagenes.setLayout(new java.awt.GridLayout(0, imagenes.size()));
-//            for (JLabel imagene : imagenes) {
-//                vista.panelImagenes.add(imagene);
-//                imagene.setVisible(true);
-//                vista.panelImagenes.updateUI();
-//            }
-            catch (IOException ex) {
-                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            else
+            {
+                        
+                JOptionPane.showMessageDialog(vista, "El texto debe terminar con punto final, por favor ingresa nuevamente el texto","Atención", JOptionPane.WARNING_MESSAGE);
             }
         }
         if(vista.buttonNuevo==e.getSource()){
             vista.line.setText("");
-            System.out.println("Hola");
+           // System.out.println("Hola");
             Analizar.nodosArbol.clear();
             Analizar.contGlobal = 0;
             vista.panelImagenes.removeAll();

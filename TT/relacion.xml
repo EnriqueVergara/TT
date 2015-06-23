@@ -72,8 +72,10 @@
                 <tipoPasivo>N</tipoPasivo>
             </concept>
             <concept nombre="del-modo-con"> <!-- 11 -->
-                <agente>alimento</agente>
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
                 <pasivo>emoción</pasivo>
+                <tipoPasivo>N</tipoPasivo>
             </concept>
             <concept nombre="que-tiene">    <!-- 12 -->
                 <agente>bebida</agente>
@@ -111,8 +113,10 @@
                 <tipoPasivo>N</tipoPasivo>
             </concept>
             <concept nombre="hecho-de"> <!-- 18 -->
-                <agente>entidad fisica</agente>
+                <agente>entidad física</agente>
+                <tipoAgente>N</tipoAgente>
                 <pasivo>material</pasivo>
+                <tipoPasivo>N</tipoPasivo>
             </concept>  
 
             <concept nombre="que-contiene"> <!-- 19 -->
@@ -131,7 +135,7 @@
                 <agente>entidad física</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>nombre_propio</pasivo>
-                <tipoPasivo>NP</tipoPasivo>
+                <tipoPasivo>N</tipoPasivo>
             </concept>
         </concept>
         <concept nombre="en">
@@ -147,7 +151,7 @@
             <concept nombre="con-rumbo-a">  <!-- 23 -->
                 <agente>transporte</agente>
                 <tipoAgente>N</tipoAgente>
-                <pasivo>territorio</pasivo>
+                <pasivo>ubicación</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
         </concept>

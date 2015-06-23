@@ -23,8 +23,8 @@ public class HiloProgressBar implements Runnable {
         i = 1;
         while(!Analizar.termino) {
             i = (i > 100) ? 1 : i+1;
-            Analizador.progressBar.setValue(i);
-            Analizador.progressBar.repaint();
+            //Analizador.progressBar.setValue(i);
+          //  Analizador.progressBar.repaint();
             try {
                 Thread.sleep(this.value);
             } catch (InterruptedException e) {
@@ -33,7 +33,7 @@ public class HiloProgressBar implements Runnable {
             
             if(Analizar.termino) {
 //                Analizador.progressBar.setIndeterminate(false);
-                Analizador.progressBar.setValue(100);
+            //    Analizador.progressBar.setValue(100);
 //                Analizador.progressBar.setString("100%");
                 System.out.println("Terminó");
                 break;
