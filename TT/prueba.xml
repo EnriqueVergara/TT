@@ -4,12 +4,87 @@
 	
 <concept nombre="entidad">
     <concept nombre="entidad abstracta">
+        <concept nombre="relación">
+            <concept nombre="posesión">
+                <concept nombre="bienes">
+                    <concept nombre="participación"></concept>
+                    <concept nombre="capital"></concept>
+                    <concept nombre="dinero">
+                        <concept nombre="ingresos"></concept>
+                        <concept nombre="ganancia"></concept>
+                        <concept nombre="efectivo"></concept>
+                        <concept nombre="monedero"></concept>
+                    </concept>
+                </concept>
+                <concept nombre="tesoro">
+                    <concept nombre="fortuna"></concept>
+                    <concept nombre="valioso"></concept>
+                    
+                </concept>
+                <concept nombre="obligación">
+                    <concept nombre="cuentas por pagar"></concept>
+                    <concept nombre="déficit"></concept>
+                    <concept nombre="cargo">
+                        <concept nombre="valoración"></concept>
+                        <concept nombre="gravamen">
+                            <concept nombre="imposición"></concept>
+                        </concept>
+                        <concept nombre="impuesto"></concept>
+                        <concept nombre="diezmo"></concept>
+                        <concept nombre="tributación"></concept>
+                    </concept>
+                </concept>
+            </concept>
+        </concept>
+            
         <concept nombre="cantidad">
-            <concept nombre="periodo">
+            <concept nombre="periodo de tiempo">
+                <concept nombre="viaje"></concept>
+                <concept nombre="lapso"></concept>
+                <concept nombre="milenio"></concept>
+                <concept nombre="siglo"></concept>
+                <concept nombre="lactación"></concept>
+                <concept nombre="noche"></concept>
+                <concept nombre="mañana"></concept>
+                <concept nombre="día"></concept>
+                <concept nombre="semana"></concept>
+                <concept nombre="més">
+                    <concept nombre="Enero"></concept>
+                    <concept nombre="Febrero"></concept>
+                    <concept nombre="Abril"></concept>
+                    <concept nombre="Marzo"></concept>
+                    <concept nombre="Mayo"></concept>
+                    <concept nombre="Junio"></concept>
+                    <concept nombre="Julio"></concept>
+                    <concept nombre="Agosto"></concept>
+                    <concept nombre="Septiembre"></concept>
+                    <concept nombre="Octubre"></concept>
+                    <concept nombre="Noviembre"></concept>
+                    <concept nombre="Diciembre"></concept>
+                </concept>
+                <concept nombre="semestre"></concept>
+                <concept nombre="año"></concept>
+                <concept nombre="bimestre"></concept>
+                
+
+                <concept nombre="tiempo libre">
+                    <concept nombre="tiempo ocioso">
+                        <concept nombre="vacaciones"></concept>
+                    </concept>
+                </concept>
                 
             </concept>
         </concept>
         <concept nombre="comunicación">
+            <concept nombre="comunicación con auditorio">
+                <concept nombre="música">
+                    <concept nombre="composición musical">
+                        <concept nombre="canción"></concept>
+                        <concept nombre="musical"></concept>
+                    </concept>
+                    <concept nombre="pieza musical"></concept>
+                </concept>
+            </concept>
             <concept nombre="señal">
                 <concept nombre="símbolo">
                     <concept nombre="reconocimiento">
@@ -18,12 +93,19 @@
                         <concept nombre="oscar"></concept>
                         <concept nombre="emmy"></concept>
                         <concept nombre="trofeo"></concept>
-                        
                     </concept>
                 </concept>
             </concept>
             <concept nombre="declaración">
                 <concept nombre="amenaza"></concept>
+            </concept>
+            <concept nombre="comunicación escrita">
+                <concept nombre="sistema codificado">
+                    <concept nombre="código computacional">
+                        <concept nombre="software"></concept>
+                        <concept nombre="programa"></concept>
+                    </concept>
+                </concept>
             </concept>
         </concept>
         <concept nombre="atributo">
@@ -67,6 +149,19 @@
             <concept nombre="evento">
                 <concept nombre="acto">
                     <concept nombre="actividad">
+                        <concept nombre="proceso">
+                            <concept nombre="producción">                     
+                                <concept nombre="elaboración"></concept>                                                         
+                                <concept nombre="fabricación"></concept>
+                            </concept>
+                            <concept nombre="evaluación"></concept>
+                            <concept nombre="pruebas"></concept>
+                            <concept nombre="empaquetado"></concept>
+                            <concept nombre="creación"></concept>
+                            <concept nombre="conceptualización"></concept>
+                            <concept nombre="diseño"></concept>
+                                
+                        </concept>
                         <concept nombre="labor">
                             <concept nombre="esfuerzo">
                                 <concept nombre="dificultad"> </concept>
@@ -81,11 +176,21 @@
                 <concept nombre="proceso cognitivo">
                     <concept nombre="proceso cognitivo básico">
                         <concept nombre="precepción">
-                            <concept nombre="sencación">
+                            <concept nombre="sensación">
                                 <concept nombre="experiencia sensorial">
                                     <concept nombre="sabor">
+                                        <concept nombre="dulce"></concept>
+                                        <concept nombre="agrio"></concept>
+                                        <concept nombre="picoso"></concept>
+                                        <concept nombre="salado"></concept>
                                     </concept>
                                     <concept nombre="olor">
+                                        <concept nombre="apestoso"></concept>
+                                        <concept nombre="perfumado"></concept>
+                                    </concept>
+                                    <concept nombre="visión"></concept>
+                                    <concept nombre="audición">
+                                        <concept nombre="ruidoso"></concept>
                                     </concept>
                                 </concept>
                             </concept>
@@ -152,6 +257,10 @@
         </concept>
         
         <concept nombre="objeto físico">
+            <concept nombre="porción">
+                <concept nombre="pedazo"></concept>
+                <concept nombre="accesorio"></concept>
+            </concept>
             <concept nombre="organismo viviente">
                 <concept nombre="persona">
                     
@@ -173,6 +282,22 @@
                             </concept>
                         </concept>
                     </concept>
+                
+                    <concept nombre="nombre_propio">
+                       <concept nombre="juan"></concept>
+                       <concept nombre="enrique"></concept>
+                       <concept nombre="franz"></concept>
+                       <concept nombre="bruno"></concept>
+                       <concept nombre="maria"></concept>
+                       <concept nombre="joel"></concept>
+                       <concept nombre="omar"></concept>
+                       <concept nombre="olga"></concept>
+                       <concept nombre="alma"></concept>
+                       <concept nombre="ruben"></concept>
+                       <concept nombre="consuelo"></concept>
+                       <concept nombre="pedro"></concept>
+                       <concept nombre="alberto"></concept>
+                   </concept>
                     <concept nombre="amigo"></concept>
                     <concept nombre="barrio"></concept>
                     <concept nombre="familiar">
@@ -214,14 +339,18 @@
                         <concept nombre="población">
                             <concept nombre="municipalidad">
                                 <concept nombre="ciudad">
-                                    <concept nombre="madrid">
-                                    </concept>
-                                    <concept nombre="guadalajara">
-                                    </concept>                
-                                    <concept nombre="df">
-                                    </concept>
-                                    <concept nombre="guanajuato">
-                                    </concept>
+                                    <concept nombre="madrid"></concept>
+                                    <concept nombre="guadalajara"></concept>                
+                                    <concept nombre="df"></concept>
+                                    <concept nombre="guanajuato"></concept>
+                                    <concept nombre="berlín"></concept>
+                                    <concept nombre="ciudad_de_mexico"></concept>
+                                    <concept nombre="parís"></concept>
+                                    <concept nombre="londres"></concept>
+                                    <concept nombre="nueva_york"></concept>
+                                    <concept nombre="los_ángeles"></concept>
+                                    <concept nombre="chicago"></concept>
+                                    <concept nombre="monterrey"></concept>
                                 </concept>
                             </concept>
                         </concept>
@@ -229,6 +358,31 @@
                 </concept>
             </concept>
             <concept nombre="artefacto">
+                <concept nombre="camino">
+                    <concept nombre="ruta"></concept>
+                    <concept nombre="carretera">
+                        <concept nombre="vía publica">
+                            <concept nombre="calle">
+                                <concept nombre="wall_street"></concept>
+                                <concept nombre="avenida">
+                                    <concept nombre="circuito_interior"></concept>
+                                    <concept nombre="viaducto"></concept>
+                                    <concept nombre="periférico"></concept>
+                                    <concept nombre="campos_eliseos"></concept>
+                                    <concept nombre="reforma">
+                                        <concept nombre="paseo_de_la_reforma"></concept>
+                                    </concept>
+                                    <concept nombre="quinta">
+                                        <concept nombre="quinta_avenida"></concept>
+                                    </concept>
+                                    <concept nombre="broadway"></concept>
+                                </concept>
+                                <concept nombre="boulevard">
+                                </concept>
+                            </concept>
+                        </concept>
+                    </concept>
+                </concept>
                 <concept nombre="cuerda"></concept>
                 <concept nombre="estructura">
                     <concept nombre="obstrucción">
@@ -241,6 +395,12 @@
                     </concept>
                 </concept>
                 <concept nombre="instrumentalidad">
+                    <concept nombre="equipamento">
+                        <concept nombre="equipo_de_transmisión">
+                            <concept nombre="satélite"></concept>
+                            <concept nombre="telefónico"></concept>
+                        </concept>
+                    </concept>
                     <concept nombre="dispositivo">
                         <concept nombre="máquina">
                             <concept nombre="computador"></concept>
@@ -342,6 +502,11 @@
                 </concept>
                 
                 <concept nombre="alimento">
+                    <concept nombre="delicado">
+                        <concept nombre="confite">
+                            <concept nombre="caramelo"></concept>
+                        </concept>
+                    </concept>
                     <concept nombre="productos horneados">
                         <concept nombre="pastelillo">
                             <concept nombre="rosquilla"></concept>
@@ -420,7 +585,36 @@
     
     <concept nombre="acción">    
         <languaje>Spanish</languaje>
-        <word>acción</word>    
+        <word>acción</word>   
+        <concept nombre="tomar"></concept>
+        <concept nombre="beber"></concept>
+        <concept nombre="analizar">
+            <concept nombre="estudiar"></concept>
+            <concept nombre="evaluar"></concept>
+            <concept nombre="revisar"></concept>
+            <concept nombre="considerar"></concept>
+            <concept nombre="diagnosticar"></concept>
+            <concept nombre="comparar"></concept>
+            <concept nombre="checar"></concept>
+            <concept nombre="ensayar"></concept>
+            <concept nombre="examinae"></concept>
+            <concept nombre="pensar"></concept>
+            <concept nombre="reexaminar"></concept>
+            <concept nombre="inspeccionar"></concept>
+            <concept nombre="observar"></concept>
+        </concept>
+        <concept nombre="aplicar">
+            <concept nombre="usar"></concept>
+            <concept nombre="emplear"></concept>
+            <concept nombre="utilizar"></concept>
+            <concept nombre="asignar"></concept>
+            <concept nombre="desperdiciar"></concept>
+            <concept nombre="disfrutar"></concept>
+            <concept nombre="compartir"></concept>
+            <concept nombre="implementar"></concept>
+            <concept nombre="trabajar"></concept>
+            <concept nombre="reusar"></concept>
+        </concept> 
         <concept nombre="connectar">
             <concept nombre="adjuntar">
                 <concept nombre="asegurar">
@@ -430,9 +624,38 @@
             </concept>
         </concept>
         <concept nombre="mover">
+            <concept nombre="desplazar">
+                <languaje>Spanish</languaje>
+                <word>desplazar</word>
+                <concept nombre="interactuar">
+                </concept>                
+                <concept nombre="conducir"></concept>
+                <concept nombre="transitar"></concept>
+                <concept nombre="ir">
+                </concept>
+                <concept nombre="viajar">
+                    <languaje>Spanish</languaje>
+                    <word>viajar</word>
+                </concept>
+
+                <concept nombre="trasladar">
+                    <languaje>Spanish</languaje>
+                    <word>trasladar</word>
+                </concept>
+            </concept>
             <concept nombre="transferir">
                 <concept nombre="transmitir">
                     <concept nombre="comunicar">
+                        <concept nombre="informar">
+                            <concept nombre="anunciar">
+                                <concept nombre="publicitar">
+                                    <concept nombre="emitir">
+                                        <concept nombre="televisar"></concept>
+                                        <concept nombre="retransmitir"></concept>
+                                    </concept>
+                                </concept>
+                            </concept>
+                        </concept>
                         <concept nombre="solicitar">
                             <concept nombre="ordenar">
                                 <concept nombre="mandar">
@@ -483,23 +706,6 @@
                 <word>jugar</word>
             </concept>
 
-            <concept nombre="desplazar">
-                <languaje>Spanish</languaje>
-                <word>desplazar</word>
-                <concept nombre="ir">
-                </concept>
-                <concept nombre="viajar">
-                    <languaje>Spanish</languaje>
-                    <word>viajar</word>
-                </concept>
-
-                <concept nombre="trasladar">
-                    <languaje>Spanish</languaje>
-                    <word>trasladar</word>
-                </concept>
-
-
-            </concept>
 
             <concept nombre="bailar">
                 <languaje>Spanish</languaje>
@@ -520,20 +726,6 @@
             <concept nombre="emitir">
                 <concept nombre="ladrar"></concept>
             </concept>
-            
-        </concept>
-        <concept nombre="nombre_propio">
-            <concept nombre="juan"></concept>
-            <concept nombre="enrique"></concept>
-            <concept nombre="franz"></concept>
-            <concept nombre="bruno"></concept>
-            <concept nombre="maria"></concept>
-            <concept nombre="joel"></concept>
-            <concept nombre="omar"></concept>
-            <concept nombre="olga"></concept>
-            <concept nombre="alma"></concept>
-            <concept nombre="ruben"></concept>
-            <concept nombre="consuelo"></concept>
         </concept>
 </concept>
 </root>

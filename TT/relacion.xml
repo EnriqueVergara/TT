@@ -17,7 +17,7 @@
                 <tipoPasivo>N</tipoPasivo>
             </concept>
 
-            <concept nombre="parecido-a"> <!-- 3 -->
+            <concept nombre="parecido-a">   <!-- 3 -->
                 <agente>experiencia sensorial</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>sustancia</pasivo>
@@ -84,8 +84,11 @@
                 <tipoPasivo>N</tipoPasivo>
             </concept>
             <concept nombre="en-compañia-de">     <!-- 13 -->
-                <agente>bebida</agente>
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
                 <pasivo>persona</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+                
             </concept>            
             <concept nombre="con-contenido">    <!-- 14 -->
                 <agente>contenedor</agente>    
@@ -97,72 +100,142 @@
                 <pasivo></pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
-        </concept>    
+        </concept>   
+        <concept nombre="contra">
+            <concept nombre="en-oposición-a"> <!-- 16 -->
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo>entidad</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+            </concept>
+        </concept> 
     
         <concept nombre="de">
-            <concept nombre="de-procedencia">   <!-- 16 -->
+            <concept nombre="de-procedencia">   <!-- 17 -->
                 <agente>instrumentalidad</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>ubicación</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
-            <concept nombre="debido-a"> <!-- 17 -->
+            <concept nombre="debido-a"> <!-- 18 -->
                 <agente>cambiar de estado</agente>
                 <tipoAgente>V</tipoAgente>
                 <pasivo>atributo</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
-            <concept nombre="hecho-de"> <!-- 18 -->
+            <concept nombre="hecho-de"> <!-- 19 -->
                 <agente>entidad física</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>material</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>  
 
-            <concept nombre="que-contiene"> <!-- 19 -->
+            <concept nombre="que-contiene"> <!-- 20 -->
                 <agente>contenedor</agente>
                 <pasivo>alimento</pasivo>
             </concept> 
                         
-            <concept nombre="que-trata-sobre">  <!-- 20 -->
+            <concept nombre="que-trata-sobre">  <!-- 21 -->
                 <agente>publicación</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>area del conocimiento</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
 
-            <concept nombre="propiedad-de"> <!-- 21 -->
+            <concept nombre="propiedad-de"> <!-- 22 -->
                 <agente>entidad física</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>nombre_propio</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
         </concept>
-        <concept nombre="en">
-            <concept nombre="en-ocupacion"> <!-- 22 -->
+        <concept nombre="desde">
+            <concept nombre="estando-en">   <!-- 23 -->
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo>ubicación</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+            </concept>
+        </concept>
+        <concept nombre="durante">
+            <concept nombre="el-lapso-de">  <!-- 24 -->
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo>periodo de tiempo</pasivo>
+                <tipoPasivo> N</tipoPasivo>
+            </concept>
+        </concept>
+        <concept nombre="en">               
+            <concept nombre="en-ocupacion"> <!-- 25 -->
                 <agente>símbolo</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>dominio del conocimiento</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
+            <concept nombre="se-encuentra-en">  <!-- 26 -->
+                <agente>entidad</agente>
+                <tipoAgente>N</tipoAgente>
+                <pasivo>proceso</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+            </concept>
             
         </concept>
+        <concept nombre="entre">
+            <concept nombre="entre-estado-intermedio">  <!-- 27 -->
+                <agente>entidad física</agente>
+                <tipoAgente>N</tipoAgente>
+                <pasivo>sensación</pasivo>
+                <tipoPasivo>A</tipoPasivo>
+            </concept>
+        </concept>
+            
+        <concept nombre="hacia">                      
+            <concept nombre="rumbo-a">  <!-- 28 -->
+                <agente>transporte</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo>ubicación</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+            </concept>
+        </concept>
         <concept nombre="para">
-            <concept nombre="con-rumbo-a">  <!-- 23 -->
+            <concept nombre="con-rumbo-a">  <!-- 29 -->
                 <agente>transporte</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>ubicación</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
         </concept>
+        <concept nombre="por">
+            <concept nombre="por-transito-lugar"> <!-- 30 -->
+                <agente>desplazar</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo>camino</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+            </concept>
+        </concept>
+        <concept nombre="sin">
+            <concept nombre="Negandose-a">  <!-- 31 -->
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo>acción</pasivo>
+                <tipoPasivo>V</tipoPasivo>
+            </concept>
+        </concept>
+        <concept nombre="tras">
+            <concept nombre="Atras-de"> <!-- 32 -->
+                <agente>objeto físico</agente>
+                <pasivo>objeto físico</pasivo>
+            </concept>
+        </concept>
+            
         <concept nombre="sobre">
-            <concept nombre="Acerca-de">    <!-- 24 -->
+            <concept nombre="Acerca-de">    <!-- 33 -->
                 <agente>publicación</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>area del conocimiento</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
-            <concept nombre="Colocada-sobre">   <!-- 25 -->
+            <concept nombre="Colocada-sobre">   <!-- 34 -->
                 <agente>artefacto</agente>
                 <tipoAgente>A</tipoAgente>
                 <pasivo>mobiliario</pasivo>
@@ -175,7 +248,30 @@
                 <pasivo>mobiliario</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
-    </concept>
+        </concept>
+        <concept nombre="versus">
+            <concept nombre="En-contra"> <!-- 35 -->
+                <agente>persona</agente>
+                <tipoAgente>N</tipoAgente>
+                <pasivo>persona</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+            </concept>
+        </concept>
+        <concept nombre="vía">
+            <concept nombre="Pasando-por">  <!-- 36 -->
+                <agente>ubicación</agente>
+                <tipoAgente>N</tipoAgente>
+                <pasivo>ubicación</pasivo>
+                <tipoPasivo>N</tipoPasivo>
+            </concept>
+            <concept nombre="A-traves-de">  <!-- 37 -->
+                <agente>transmitir</agente>
+                <tipoAgente>N</tipoAgente>
+                <pasivo>equipo_de_transmisión</pasivo>
+                <tipoPasivo>A</tipoPasivo>
+            </concept>
+            
+        </concept>
         
     </concept>	
 </root>
