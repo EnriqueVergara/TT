@@ -1,10 +1,11 @@
 package com.TT.controller;
 
 import com.TT.view.Analizador;
-import com.arbol.HiloProgressBar;
+import com.TT.view.FrameAcercaDe;
+import com.TT.view.PanelImagenFondo;
+import com.arbol.Graficador;
 import com.arbol.Zoom;
-import java.awt.Dimension;
-import java.awt.Image;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -23,6 +24,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class Controlador implements ActionListener, KeyListener{  /* Actua como controlador del sistema   */
     private Analizador vista;
@@ -34,7 +36,8 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
         this.modelo=modelo;
     }
     public void iniciarVista(){
-        vista.panelImagenes.setLayout(new java.awt.GridLayout(0, 1));
+//        vista.panelImagenes.setLayout(new java.awt.GridLayout(0, 1));
+        vista.buttonNuevo.setEnabled(false);
         vista.botonAnalizar.addActionListener(this);
         vista.buttonNuevo.addActionListener(this);
         vista.zoom150.addActionListener(this);
@@ -43,45 +46,51 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
         vista.zoom50.addActionListener(this);
         vista.zoom25.addActionListener(this);
         vista.menuRestaurar.addActionListener(this);
+        vista.menuAcercaDe.addActionListener(this);
         vista.line.addKeyListener(this);
-        vista.setVisible(true);
+        vista.setVisible(true);  
+        
+        //Coloca la imagen de fondo en el Frame
+        JPanel objPanel = new PanelImagenFondo();
+        objPanel.setSize(vista.panelImgFondo.getWidth(), vista.panelImgFondo.getHeight());
+        vista.panelImgFondo.add(objPanel);
+        vista.panelImgFondo.validate();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(vista.botonAnalizar==e.getSource()){
             if(vista.line.getText().endsWith(".")){
+                boolean originalFreeling = false;
                 final ExecutorService service;
                 final Future<List<JLabel>> task;
                 List<JLabel> imagenes=new ArrayList();
+
+                //Revisa si el checkbox esta seleccionado
+                if(vista.checkBoxAnalisisOriginal.isSelected()) originalFreeling = true;
                 service=Executors.newFixedThreadPool(1);
-                GenerarArbol arbol=new GenerarArbol(modelo.analizador, modelo.ontologia);
+                GenerarArbol arbol = new GenerarArbol(modelo.analizador, modelo.ontologia, originalFreeling);
                 arbol.setOracion(vista.line.getText());
-                task=service.submit(arbol);
+                task = service.submit(arbol);
                 try{
                     imagenes=task.get();
                     //System.out.println(task.get().size());
                 }catch(InterruptedException | ExecutionException ex){
                     System.out.println(ex.getMessage());
                 }
-
+                
                 try {
-                    BufferedImage bi = ImageIO.read(new File("/home/enrique/NetBeansProjects/TT/TT/src/com/arbol/outfile0.jpg"));
-                    zoom = new Zoom(bi);
-                    vista.panelImagenes.add(zoom);
-                    vista.panelImagenes.setSize(bi.getWidth(), bi.getHeight());
-    //                  vista.panelImagenes.add(imagene);
-    //                  imagene.setVisible(true);
-                    vista.panelImagenes.updateUI();
-                }
-    //            vista.panelImagenes.removeAll();
-    //            vista.panelImagenes.setLayout(new java.awt.GridLayout(0, imagenes.size()));
-    //            for (JLabel imagene : imagenes) {
-    //                vista.panelImagenes.add(imagene);
-    //                imagene.setVisible(true);
-    //                vista.panelImagenes.updateUI();
-    //            }
-                catch (IOException ex) {
+                    if(originalFreeling) {
+                        Desktop.getDesktop().open(new File(Graficador.path + "/outfile0.jpg"));
+                    } else {
+                            BufferedImage bi = ImageIO.read(new File(Graficador.path + "/outfile0.jpg"));
+                            zoom = new Zoom(bi);
+                            vista.panelImagenes.add(zoom);
+                            vista.panelImagenes.setSize(bi.getWidth(), bi.getHeight());
+                            vista.panelImagenes.updateUI();
+
+                    }
+                } catch (IOException ex) {
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -101,19 +110,12 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
             
             //Elimina las imagenes que se hayan crado
             int cont = 0;
-            File f = new File("/home/bruno/NetBeansProjects/TT/TT/src/com/arbol/outfile"+cont+".jpg");
+            File f = new File(Graficador.path + "/outfile"+cont+".jpg");
             while(f.exists()) {
                 f.delete();
                 cont++;
-                f = new File("/home/bruno/NetBeansProjects/TT/TT/src/com/arbol/outfile"+cont+".jpg");
+                f = new File(Graficador.path + "/outfile"+cont+".jpg");
             }
-//                    hiloAnalizar.interrupt();
-//        hiloProgressBar.interrupt();
-//        
-//        panelImagenes.removeAll();
-//        panelImagenes.updateUI();
-//        progressBar.setValue(0);
-//        buttonNuevo.setEnabled(false);
         }
         if(vista.zoom150 == e.getSource()) {
             zoom.Aumentar(150);
@@ -132,6 +134,10 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
         }
         if(vista.menuRestaurar == e.getSource()) {
             zoom.Restaurar();
+        }
+        if(vista.menuAcercaDe == e.getSource()) {
+            FrameAcercaDe about = new FrameAcercaDe();
+            about.setVisible(true);
         }
     }
 

@@ -7,7 +7,6 @@ package com.arbol;
 
 import com.TT.view.Analizador;
 import java.awt.Desktop;
-import java.awt.Image;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -25,7 +23,7 @@ import javax.swing.JLabel;
  * @author bruno
  */
 public class Graficador {
-    String path = "/home/bruno/NetBeansProjects/TT/TT/src/com/arbol";
+    public static String path = "/home/bruno/NetBeansProjects/TT/TT/src/img";
     List<String> relacionArbol;
     List<Nodo> nodosArbol;
     
@@ -46,8 +44,6 @@ public class Graficador {
         
         for(int i = 0; i < oraciones; i++) {
             File archivo = new File(path + "/Arbol" + i + ".txt");
-            String padre, hijo;
-            int separador;
             relacionArbol.remove(0);
 
             try {

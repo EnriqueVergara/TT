@@ -27,30 +27,17 @@ public class Analizar {
     public static boolean termino = false;
     private String oracion;
     public static int contGlobal = 0;
+    boolean originalFreeling;
     
     public void setOracion(String oracion){
         this.oracion=oracion;
     }
     
-   // @Override
-//    public String call() {
-//        termino = false;
-//        String re=analizarOracion(oracion);
-//       // Analizador.tagged.setText(oracion);
-//        try {
-//            Thread.sleep( 1000 );
-//        } catch (InterruptedException e){
-//            System.err.println( e.getMessage() );
-//        }
-//        termino = true;
-//        Thread.interrupted();
-//        return "Hola";
-//    }
-    
-    public Analizar(Freeling analizador,Ontologia ontologia) { 
+    public Analizar(Freeling analizador,Ontologia ontologia, boolean originalFreeling) { 
         this.ontologia=ontologia;
         desambiguador=new DesambiguadorPrep(ontologia);
         this.analizador=analizador;
+        this.originalFreeling = originalFreeling;
     }
     
     public List<JLabel> generarArbolGrafico(){
@@ -87,12 +74,12 @@ public class Analizar {
         analizador.tg.analyze(ls);                          /* CU-2: Etiquetar Oración
         
         /*  Modulos desarrollados para el TT    */
+        if(!originalFreeling) {
+            ls=desambiguador.desambiguarPreposiciones(ls);                    /*  Desambigua preposiciones   CU-3: Desambiguar Preposiciones  */
         
-        ls=desambiguador.desambiguarPreposiciones(ls);                    /*  Desambigua preposiciones   CU-3: Desambiguar Preposiciones  */
-        
-        ls=resolvedor.resuelveConjunciones(ls);                        /*  Resolvedor de conjunciones  CU-4: Resolver conjunciones  */
-        
-        
+            ls=resolvedor.resuelveConjunciones(ls);         /*  Resolvedor de conjunciones  CU-4: Resolver conjunciones  */
+        }
+  
         analizador.parser.analyze(ls);
         analizador.dep.analyze(ls);                         /*  Analisis de dependencias    */
         

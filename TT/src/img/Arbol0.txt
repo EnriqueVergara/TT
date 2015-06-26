@@ -1,0 +1,15 @@
+digraph G 
+ { 
+"nodo0" [label="toma\n(VMIP3S0)"]; 
+"nodo1" [label="Enrique\n(NP00000)"]; 
+"nodo2" [label="café\n(NCMS000)"]; 
+"nodo3" [label="que-tiene\n(SPS00)"]; 
+"nodo4" [label="leche\n(NCFS000)"]; 
+"nodo5" [label=".\n(Fp)"]; 
+
+"nodo0" -> "nodo1"; 
+"nodo0" -> "nodo2"; 
+"nodo2" -> "nodo3"; 
+"nodo3" -> "nodo4"; 
+"nodo0" -> "nodo5"; 
+}

@@ -12,8 +12,8 @@ public class GenerarArbol extends Analizar implements Callable<List<JLabel>>{ /*
         return this.generarArbolGrafico();
     }
 
-    public GenerarArbol(Freeling analizador, Ontologia ontologia) {
-        super(analizador, ontologia);
+    public GenerarArbol(Freeling analizador, Ontologia ontologia, boolean originalFreeling) {
+        super(analizador, ontologia, originalFreeling);
     }
 
 
