@@ -111,7 +111,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="M&#xf3;dulo de an&#xe1;lisis sem&#xe1;ntico sobre el an&#xe1;lizador sint&#xe1;ctico Freeling"/>
+        <Property name="text" type="java.lang.String" value="M&#xf3;dulo de an&#xe1;lisis sem&#xe1;ntico sobre el analizador sint&#xe1;ctico Freeling"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">

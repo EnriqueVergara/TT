@@ -509,6 +509,10 @@
                             <concept nombre="publicación">
                                 <concept nombre="libro">
                                 </concept>
+                                <concept nombre="artículo">
+                                </concept>
+                                <concept nombre="revista">
+                                </concept>
                             </concept>
                         </concept>
                     </concept>
@@ -552,11 +556,6 @@
                         </concept>
                     </concept>
                     <concept nombre="productos horneados">
-                        <concept nombre="pan">
-                            <concept nombre="bolillo"></concept>
-                            <concept nombre="telera"></concept>
-                            <concept nombre="concha"></concept>
-                        </concept>
                         <concept nombre="pastelillo">
                             <concept nombre="rosquilla"></concept>
                             <concept nombre="pastel"></concept>
@@ -605,8 +604,6 @@
                                     <concept nombre="azucar"></concept>
                                     <concept nombre="jarabe"></concept>
                                     <concept nombre="sacarina"></concept>
-                                    <concept nombre="cajeta"></concept>
-                                    <concept nombre="mermelada"></concept>
                                         
                                 </concept>
                             </concept>
@@ -619,6 +616,7 @@
                         <concept nombre="leche">
                         </concept>
                         <concept nombre="té"></concept>
+                        <concept nombre="chocolate"></concept>
                     </concept>
                 </concept>
                 <concept nombre="combustible">
@@ -704,9 +702,6 @@
             </concept>
         </concept>
         <concept nombre="mover">
-            <concept nombre="separar">
-                <concept nombre="cortar"></concept>
-            </concept>
             <concept nombre="regresar"></concept>
             <concept nombre="desplazar">
                 <languaje>Spanish</languaje>

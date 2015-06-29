@@ -3,16 +3,15 @@
 <root>	
     <concept nombre="relacion">
         <concept nombre="a"> 
+            <concept nombre="con-precio-de">    <!-- 1 -->
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo></pasivo>
+                <tipoPasivo>Z</tipoPasivo>
+            </concept>
             <concept nombre="rumbo-a">  <!-- 2 -->
                 <agente>desplazar</agente>
                 <tipoAgente>V</tipoAgente>
-                <pasivo>ubicación</pasivo>
-                <tipoPasivo>N</tipoPasivo>
-            </concept>
-                        
-            <concept nombre="rumbo-a">  <!-- 2 -->
-                <agente>camino</agente>
-                <tipoAgente>N</tipoAgente>
                 <pasivo>ubicación</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
@@ -29,13 +28,6 @@
                 <tipoAgente>N</tipoAgente>
                 <pasivo>sustancia</pasivo>
                 <tipoPasivo>N</tipoPasivo>
-            </concept>
-                        
-            <concept nombre="con-precio-de">    <!-- 1 -->
-                <agente>acción</agente>
-                <tipoAgente>V</tipoAgente>
-                <pasivo></pasivo>
-                <tipoPasivo>Z</tipoPasivo>
             </concept>
         </concept>
         <concept nombre="ante">
@@ -250,6 +242,13 @@
                 <pasivo>ubicación</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
+            <concept nombre="hasta-cantidad"> <!-- 36 -->
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo></pasivo>
+                <tipoPasivo>Z</tipoPasivo>
+            </concept>
+            
                       
             <concept nombre="hasta-acción"> <!-- 38 -->
                 <agente>acción</agente>
@@ -257,50 +256,29 @@
                 <pasivo>acción</pasivo>
                 <tipoPasivo>V</tipoPasivo>
             </concept>
-                        
-            <concept nombre="hasta-cantidad"> <!-- 36 -->
-                <agente>acción</agente>
-                <tipoAgente>V</tipoAgente>
-                <pasivo></pasivo>
-                <tipoPasivo>Z</tipoPasivo>
-            </concept>
         </concept>
 <!--        <concept nombre="mediante">
         </concept>-->
         <concept nombre="para">
-            <concept nombre="se-usa-para">  <!-- 50 -->
-                <agente>entidad</agente>
-                <tipoAgente>N</tipoAgente>
-                <pasivo>acción</pasivo>
-                <tipoPasivo>V</tipoPasivo>
-            </concept>
             <concept nombre="con-rumbo-a">  <!-- 39 -->
                 <agente>transporte</agente>
                 <tipoAgente>N</tipoAgente>
                 <pasivo>ubicación</pasivo>
                 <tipoPasivo>N</tipoPasivo>
             </concept>
-                      
-            <concept nombre="para-cantidad"> <!-- 49 -->
-                <agente>acción</agente>
-                <tipoAgente>V</tipoAgente>
-                <pasivo></pasivo>
-                <tipoPasivo>Z</tipoPasivo>
-            </concept>
         </concept>
         <concept nombre="por">   
-            <concept nombre="por-transito-lugar"> <!-- 41 -->
-                <agente>desplazar</agente>
-                <tipoAgente>V</tipoAgente>
-                <pasivo>camino</pasivo>
-                <tipoPasivo>N</tipoPasivo>
-            </concept>
-                      
             <concept nombre="por-cantidad"> <!-- 40 -->
                 <agente>acción</agente>
                 <tipoAgente>V</tipoAgente>
                 <pasivo></pasivo>
                 <tipoPasivo>Z</tipoPasivo>
+            </concept>
+            <concept nombre="por-transito-lugar"> <!-- 41 -->
+                <agente>desplazar</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo>camino</pasivo>
+                <tipoPasivo>N</tipoPasivo>
             </concept>
         </concept>
         <concept nombre="sin">
