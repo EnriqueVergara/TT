@@ -74,7 +74,7 @@ public class DesambiguadorPrep {
                         try{
                             agente=ontologia.buscarEnIndice(buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
                             pasivo=ontologia.buscarEnIndice(buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
-                            if(rel.getHijos().get(cont).getTipoPasivo().equals("Z")){
+                            if(rel.getHijos().get(cont).getTipoPasivo().equals("Z") && !pasivo.equals("")){
                                 pasivo.setNombre("Z");
                             }
                             if(!rel.getHijos().get(cont).getTipoPasivo().equals("Z") && des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
