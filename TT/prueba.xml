@@ -552,6 +552,11 @@
                         </concept>
                     </concept>
                     <concept nombre="productos horneados">
+                        <concept nombre="pan">
+                            <concept nombre="bolillo"></concept>
+                            <concept nombre="telera"></concept>
+                            <concept nombre="concha"></concept>
+                        </concept>
                         <concept nombre="pastelillo">
                             <concept nombre="rosquilla"></concept>
                             <concept nombre="pastel"></concept>
@@ -600,6 +605,8 @@
                                     <concept nombre="azucar"></concept>
                                     <concept nombre="jarabe"></concept>
                                     <concept nombre="sacarina"></concept>
+                                    <concept nombre="cajeta"></concept>
+                                    <concept nombre="mermelada"></concept>
                                         
                                 </concept>
                             </concept>
@@ -697,6 +704,9 @@
             </concept>
         </concept>
         <concept nombre="mover">
+            <concept nombre="separar">
+                <concept nombre="cortar"></concept>
+            </concept>
             <concept nombre="regresar"></concept>
             <concept nombre="desplazar">
                 <languaje>Spanish</languaje>

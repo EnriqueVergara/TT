@@ -260,6 +260,18 @@
 <!--        <concept nombre="mediante">
         </concept>-->
         <concept nombre="para">
+            <concept nombre="se-usa-para">  <!-- 50 -->
+                <agente>entidad</agente>
+                <tipoAgente>N</tipoAgente>
+                <pasivo>acción</pasivo>
+                <tipoPasivo>V</tipoPasivo>
+            </concept>
+            <concept nombre="para-cantidad"> <!-- 49 -->
+                <agente>acción</agente>
+                <tipoAgente>V</tipoAgente>
+                <pasivo></pasivo>
+                <tipoPasivo>Z</tipoPasivo>
+            </concept>
             <concept nombre="con-rumbo-a">  <!-- 39 -->
                 <agente>transporte</agente>
                 <tipoAgente>N</tipoAgente>

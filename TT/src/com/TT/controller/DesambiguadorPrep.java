@@ -77,7 +77,7 @@ public class DesambiguadorPrep {
                             if(rel.getHijos().get(cont).getTipoPasivo().equals("Z")){
                                 pasivo.setNombre("Z");
                             }
-                            if(des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
+                            if(!rel.getHijos().get(cont).getTipoPasivo().equals("Z") && des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
                                 desambiguado=rel.getHijos().get(cont).getNombre();    
                                 cont=rel.getHijos().size()+1;
                             }
