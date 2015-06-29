@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 public class Analizar {
     
     private DesambiguadorPrep desambiguador;
-    private ResolvedorConj resolvedor=new ResolvedorConj();
+    private TratarConj resolvedor=new TratarConj();
     public Freeling analizador; 
     public Ontologia ontologia;
     public static boolean termino = false;

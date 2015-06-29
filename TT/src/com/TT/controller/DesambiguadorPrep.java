@@ -41,7 +41,7 @@ public class DesambiguadorPrep {
                 return vec.get(i).getLemma();
             }
         }
-        return null;
+        return "";
     }
     
     public ListSentence desambiguarPreposiciones(ListSentence ls){
@@ -70,13 +70,18 @@ public class DesambiguadorPrep {
                     analisis.setLemma(vec.get(i).getForm());
                     try{
                     rel=ontologia.buscarEnIndiceRel(vec.get(i).getLemma()); 
-                    for(int cont=0;cont<rel.getHijos().size();cont++){
-                        agente=ontologia.buscarEnIndice(buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
-                        pasivo=ontologia.buscarEnIndice(buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
-                        if(des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
-                            desambiguado=rel.getHijos().get(cont).getNombre();    
-                            cont=rel.getHijos().size();
-                        }
+                    for(int cont=0;cont<=rel.getHijos().size();cont++){
+                        try{
+                            agente=ontologia.buscarEnIndice(buscaPrevio(vec, i,rel.getHijos().get(cont).getTipoAgente())); 
+                            pasivo=ontologia.buscarEnIndice(buscaPosterior(vec, i,rel.getHijos().get(cont).getTipoPasivo()));
+                            if(rel.getHijos().get(cont).getTipoPasivo().equals("Z")){
+                                pasivo.setNombre("Z");
+                            }
+                            if(des.desambiguaRelacion(agente, pasivo, rel.getHijos().get(cont)))  {
+                                desambiguado=rel.getHijos().get(cont).getNombre();    
+                                cont=rel.getHijos().size()+1;
+                            }
+                        }catch(Exception ex){}
                     } 
                     
                     if(!desambiguado.equals(""))

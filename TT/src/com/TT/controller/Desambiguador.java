@@ -17,6 +17,8 @@ public class Desambiguador {
         return "";
     }
     public boolean desambiguaRelacion(Concepto agente,Concepto pasivo,Relacion rel){
+        if(pasivo.getNombre().equals("Z") && empatar(agente, rel.getAgente()))
+            return true;
         if(empatar(agente, rel.getAgente()) && empatar(pasivo, rel.getPasivo()))
             return true;
 //        System.out.println("lado izquierdo: "+empatar(agente, rel.getAgente()));

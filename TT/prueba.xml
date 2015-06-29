@@ -38,6 +38,14 @@
         </concept>
             
         <concept nombre="cantidad">
+            <concept nombre="unidad de tiempo">
+                <concept nombre="día solar">
+                    <concept nombre="mañana"></concept>
+                    <concept nombre="ayer"></concept>
+                    <concept nombre="hoy"></concept>
+                    <concept nombre="víspera"></concept>
+                </concept>
+            </concept>
             <concept nombre="periodo de tiempo">
                 <concept nombre="viaje"></concept>
                 <concept nombre="lapso"></concept>
@@ -48,7 +56,7 @@
                 <concept nombre="mañana"></concept>
                 <concept nombre="día"></concept>
                 <concept nombre="semana"></concept>
-                <concept nombre="més">
+                <concept nombre="mes">
                     <concept nombre="Enero"></concept>
                     <concept nombre="Febrero"></concept>
                     <concept nombre="Abril"></concept>
@@ -148,7 +156,20 @@
         <concept nombre="capacidad psicologica">
             <concept nombre="evento">
                 <concept nombre="acto">
+                    <concept nombre="transacción">
+                        <concept nombre="comercio">
+                            <concept nombre="venta"></concept>
+                            <concept nombre="trato"></concept>
+                        </concept>
+                    </concept>
+                    
                     <concept nombre="actividad">
+                        <concept nombre="práctica">
+                            <concept nombre="costumbre"></concept>
+                            <concept nombre="tradición"></concept>
+                            <concept nombre="ritual"></concept>
+                            <concept nombre="rito"></concept>
+                        </concept>
                         <concept nombre="proceso">
                             <concept nombre="producción">                     
                                 <concept nombre="elaboración"></concept>                                                         
@@ -228,6 +249,7 @@
                 <concept nombre="parte del cuerpo">
                     <concept nombre="tejido">
                         <concept nombre="tejido animal">
+                            <concept nombre="ojos"></concept>
                             <concept nombre="hueso">
                                 <concept nombre="diente">
                                     <concept nombre="canino">
@@ -263,8 +285,28 @@
             </concept>
             <concept nombre="organismo viviente">
                 <concept nombre="persona">
-                    
                     <concept nombre="trabajador">
+                        <concept nombre="trabajador_calificado">
+                            <concept nombre="mecánico"></concept>
+                            <concept nombre="pastelero"></concept>
+                            <concept nombre="aviador"></concept>
+                            <concept nombre="cocinero"></concept>
+                            <concept nombre="fumigador"></concept>
+                        </concept>
+                        <concept nombre="profesional">
+                            <concept nombre="ingeniero">
+                                <concept nombre="arquitecto"></concept>
+                            </concept>
+                            <concept nombre="profesional de la salud">
+                                <concept nombre="practicante médico">
+                                    <concept nombre="médico"></concept>
+                                    <concept nombre="doctor"></concept>
+                                    <concept nombre="dentista"></concept>
+                                    <concept nombre="enfermero"></concept>
+                                </concept>
+                            </concept>
+                            
+                        </concept>
                         <concept nombre="empleado">
                         </concept>
                         <concept nombre="trabajador calificado">
@@ -300,7 +342,7 @@
                    </concept>
                     <concept nombre="amigo"></concept>
                     <concept nombre="barrio"></concept>
-                    <concept nombre="familiar">
+                    <concept nombre="familia">
                         <concept nombre="hermano"></concept>
                         <concept nombre="hermana"></concept>
                         <concept nombre="padre"></concept>
@@ -317,6 +359,8 @@
                 </concept>
             </concept>
             <concept nombre="ubicación">
+                <concept nombre="arriba"></concept>
+                <concept nombre="abajo"></concept>
                 <concept nombre="continente">
                     <concept nombre="europa"></concept>
                     <concept nombre="américa"></concept>
@@ -586,6 +630,35 @@
     <concept nombre="acción">    
         <languaje>Spanish</languaje>
         <word>acción</word>   
+        <concept nombre="adquirir">
+            <concept nombre="comprar"></concept>
+        </concept>
+        <concept nombre="hacer"></concept>
+        <concept nombre="recostar">
+            <concept nombre="descansar">
+                <concept nombre="dormir"></concept>
+            </concept>
+        </concept>
+        <concept nombre="consumir">
+            <concept nombre="comer"></concept>
+            <concept nombre="ingerir"></concept>
+            <concept nombre="desayunar"></concept>
+            <concept nombre="cenar"></concept>
+        </concept>
+        <concept nombre="ser">
+            <concept nombre="costar"></concept>
+        </concept>
+        <concept nombre="empezar">
+            <concept nombre="iniciar"></concept>
+        </concept>
+        
+        <concept nombre="percibir">
+            <concept nombre="ver"></concept>
+            <concept nombre="sentir"></concept>
+            <concept nombre="escuchar"></concept>
+            <concept nombre="oler"></concept>
+            <concept nombre="mirar"></concept>
+        </concept>
         <concept nombre="tomar"></concept>
         <concept nombre="beber"></concept>
         <concept nombre="analizar">
@@ -624,6 +697,7 @@
             </concept>
         </concept>
         <concept nombre="mover">
+            <concept nombre="regresar"></concept>
             <concept nombre="desplazar">
                 <languaje>Spanish</languaje>
                 <word>desplazar</word>

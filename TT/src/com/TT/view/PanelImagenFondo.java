@@ -25,7 +25,7 @@ public class PanelImagenFondo extends javax.swing.JPanel {
     @Override
     public void paintComponent(Graphics g){
         Dimension tam = getSize();
-        ImageIcon imagen = new ImageIcon(getClass().getResource("/img/fondo_beige.jpg"));
+        ImageIcon imagen = new ImageIcon(getClass().getResource("/img/fondo_blanco.jpg"));
         g.drawImage(imagen.getImage(), 0, 0, tam.width, tam.height, null);
         setOpaque(false);
         super.paintComponent(g);
