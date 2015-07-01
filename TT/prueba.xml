@@ -4,6 +4,7 @@
 	
 <concept nombre="entidad">
     <concept nombre="entidad abstracta">
+        <concept nombre="dios"></concept>
         <concept nombre="relación">
             <concept nombre="posesión">
                 <concept nombre="bienes">
@@ -143,7 +144,7 @@
                 </concept>
                 <concept nombre="circunstancia"></concept>
                 <concept nombre="situación"></concept>
-                
+                <concept nombre="efecto"></concept>
             </concept>
             <concept nombre="sentimiento">
                 <concept nombre="emoción">
@@ -364,6 +365,7 @@
                 <concept nombre="continente">
                     <concept nombre="europa"></concept>
                     <concept nombre="américa"></concept>
+                    <concept nombre="africa"></concept>
                 </concept>
                 <concept nombre="región">
                     <concept nombre="división territorial">
@@ -395,6 +397,9 @@
                                     <concept nombre="los_ángeles"></concept>
                                     <concept nombre="chicago"></concept>
                                     <concept nombre="monterrey"></concept>
+                                    <concept nombre="china"></concept>
+                                    <concept nombre="francia"></concept>
+                                    <concept nombre="japón"></concept>
                                 </concept>
                             </concept>
                         </concept>
@@ -498,6 +503,8 @@
                             </concept>
                             <concept nombre="tren">
                             </concept>
+                            <concept nombre="locomotora">
+                            </concept>
                             <concept nombre="metro">
                             </concept>
                         </concept>
@@ -553,6 +560,7 @@
                     <concept nombre="delicado">
                         <concept nombre="confite">
                             <concept nombre="caramelo"></concept>
+                            <concept nombre="dulce"></concept>
                         </concept>
                     </concept>
                     <concept nombre="productos horneados">
@@ -603,8 +611,7 @@
                                     <concept nombre="miel"></concept>
                                     <concept nombre="azucar"></concept>
                                     <concept nombre="jarabe"></concept>
-                                    <concept nombre="sacarina"></concept>
-                                        
+                                    <concept nombre="sacarina"></concept>        
                                 </concept>
                             </concept>
                         </concept>
@@ -626,7 +633,8 @@
                     </concept>
                     <concept nombre="gas natural">
                     </concept>
-                    
+                    <concept nombre="vapor">
+                    </concept>
                 </concept>
             </concept>
         </concept>
@@ -638,7 +646,9 @@
         <concept nombre="adquirir">
             <concept nombre="comprar"></concept>
         </concept>
+        <concept nombre="gastar"></concept>
         <concept nombre="hacer"></concept>
+        <concept nombre="entrenar"></concept>
         <concept nombre="recostar">
             <concept nombre="descansar">
                 <concept nombre="dormir"></concept>
@@ -693,7 +703,7 @@
             <concept nombre="trabajar"></concept>
             <concept nombre="reusar"></concept>
         </concept> 
-        <concept nombre="connectar">
+        <concept nombre="conectar">
             <concept nombre="adjuntar">
                 <concept nombre="asegurar">
                     <concept nombre="amarrar">
@@ -702,14 +712,16 @@
             </concept>
         </concept>
         <concept nombre="mover">
-            <concept nombre="regresar"></concept>
             <concept nombre="desplazar">
                 <languaje>Spanish</languaje>
                 <word>desplazar</word>
                 <concept nombre="interactuar">
+                	<concept nombre="hablar"></concept>  
                 </concept>                
                 <concept nombre="conducir"></concept>
                 <concept nombre="transitar"></concept>
+                <concept nombre="caminar"></concept>
+                <concept nombre="regresar"></concept>
                 <concept nombre="ir">
                 </concept>
                 <concept nombre="viajar">
@@ -768,6 +780,7 @@
                 <concept nombre="romper"></concept>
             </concept>
             <concept nombre="alterar"></concept>
+            <concept nombre="esperar"></concept>
             <concept nombre="modificar"></concept>
             <concept nombre="afectar"></concept>
             <concept nombre="convertir"></concept>
@@ -777,6 +790,8 @@
             <concept nombre="tocar"></concept>
             <concept nombre="activar"></concept>
             <concept nombre="editar"></concept>
+         	  <concept nombre="manifestar"> </concept>
+         	  <concept nombre="luchar"> </concept>
 
         </concept>
         

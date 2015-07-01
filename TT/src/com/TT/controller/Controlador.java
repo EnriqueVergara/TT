@@ -61,6 +61,7 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
     public void actionPerformed(ActionEvent e) {
         if(vista.botonAnalizar==e.getSource()){
             if(vista.line.getText().endsWith(".")){
+                vista.botonAnalizar.setEnabled(false);
                 boolean originalFreeling = false;
                 final ExecutorService service;
                 final Future<List<JLabel>> task;
@@ -101,6 +102,7 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
             }
         }
         if(vista.buttonNuevo==e.getSource()){
+            vista.botonAnalizar.setEnabled(true);
             vista.line.setText("");
            // System.out.println("Hola");
             Analizar.nodosArbol.clear();
