@@ -24,12 +24,14 @@ import javax.swing.JLabel;
  */
 public class Graficador {
     public static String path = "/home/bruno/NetBeansProjects/TT/TT/src/img";
+    boolean originalFreeling;
     List<String> relacionArbol;
     List<Nodo> nodosArbol;
     
-    public Graficador(List<String> relacionArbol, List<Nodo> nodosArbol) {
+    public Graficador(List<String> relacionArbol, List<Nodo> nodosArbol, boolean originalFreeling) {
         this.relacionArbol = relacionArbol;
         this.nodosArbol = nodosArbol;
+        this.originalFreeling = originalFreeling;
     }
     
     public List<JLabel> crearGraficaArbol() {
@@ -84,7 +86,14 @@ public class Graficador {
     public List<JLabel> compilarGrafo(int oraciones) {
         for(int i = 0; i < oraciones; i++) {
             try {
-                String cmd = "dot -Tjpg " + path + "/Arbol" + i +".txt -o " + path + "/outfile" + i + ".jpg";
+                String cmd;
+                
+                if(originalFreeling) {
+                    cmd = "dot -Tjpg " + path + "/Arbol" + i +".txt -o " + path + "/outfileFreeling.jpg";
+                } else {
+                    cmd = "dot -Tjpg " + path + "/Arbol" + i +".txt -o " + path + "/outfile" + i + ".jpg";
+                }
+                
                 Process p = Runtime.getRuntime().exec(cmd);
                 p.waitFor();
                 //Desktop.getDesktop().open(new File(path + "/outfile" + i + ".jpg"));

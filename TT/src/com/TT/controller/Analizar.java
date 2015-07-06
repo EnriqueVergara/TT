@@ -59,7 +59,7 @@ public class Analizar {
             CU-5: Generar árbol de dependencias.
         */
         Analizador.labelEstado.setText("Dibujando árbol de dependencias...");
-        Graficador graficador = new Graficador(relacionArbol, nodosArbol);
+        Graficador graficador = new Graficador(relacionArbol, nodosArbol, originalFreeling);
         return graficador.crearGraficaArbol();
         //return null;
        // return new JLabel();

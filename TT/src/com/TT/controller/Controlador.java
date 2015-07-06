@@ -82,7 +82,7 @@ public class Controlador implements ActionListener, KeyListener{  /* Actua como 
                 
                 try {
                     if(originalFreeling) {
-                        Desktop.getDesktop().open(new File(Graficador.path + "/outfile0.jpg"));
+                        Desktop.getDesktop().open(new File(Graficador.path + "/outfileFreeling.jpg"));
                     } else {
                             BufferedImage bi = ImageIO.read(new File(Graficador.path + "/outfile0.jpg"));
                             zoom = new Zoom(bi);
